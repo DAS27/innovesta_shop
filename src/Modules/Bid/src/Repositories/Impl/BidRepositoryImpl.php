@@ -27,7 +27,7 @@ final class BidRepositoryImpl implements BidRepository
         $bid->status = BidStatusEnum::tryFrom($bidDto->status->value);
         $bid->room_type = RoomTypeEnum::tryFrom($bidDto->room_type->value);
         $bid->room_dimensions = $bidDto->room_dimensions;
-        $bid->comment = json_encode($bidDto->comment);
+        $bid->comment = $bidDto->comment ? json_encode($bidDto->comment) : null;
         $bid->sku = $bidDto->sku;
         $bid->room_scheme = $bidDto->room_scheme;
         $bid->save();
