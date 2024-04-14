@@ -98,6 +98,14 @@ return [
             'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
             'scheme' => 'https',
         ],
+
+        'mailtrap' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_TRAP_HOST'),
+            'username' => env('MAIL_TRAP_USERNAME'),
+            'password' => env('MAIL_TRAP_PASSWORD'),
+            'auth' => env('MAIL_TRAP_AUTH'),
+        ]
     ],
 
     /*
