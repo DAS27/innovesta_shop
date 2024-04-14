@@ -64,13 +64,13 @@
                     <img src="{{ asset('img/icons/tgGreyIcon.svg') }}" alt="telegram icon" />
                 </a>
 
-                <a
-                    class="social-link"
-                    href="https://www.instagram.com/"
-                    target="_blank"
-                >
-                    <img src="{{ asset('img/icons/igGreyIcon.svg') }}" alt="instagram icon" />
-                </a>
+{{--                <a--}}
+{{--                    class="social-link"--}}
+{{--                    href="https://www.instagram.com/"--}}
+{{--                    target="_blank"--}}
+{{--                >--}}
+{{--                    <img src="{{ asset('img/icons/igGreyIcon.svg') }}" alt="instagram icon" />--}}
+{{--                </a>--}}
             </div>
         </div>
     </div>

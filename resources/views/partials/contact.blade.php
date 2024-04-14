@@ -65,13 +65,13 @@
                     <img src="{{ asset('img/icons/tgIcon.svg') }}" alt="telegram icon') }}"/>
                 </a>
 
-                <a
-                    class="social-link"
-                    href="https://www.instagram.com/"
-                    target="_blank"
-                >
-                    <img src="{{ asset('img/icons/igIcon.svg') }}" alt="instagram icon') }}" />
-                </a>
+{{--                <a--}}
+{{--                    class="social-link"--}}
+{{--                    href="https://www.instagram.com/"--}}
+{{--                    target="_blank"--}}
+{{--                >--}}
+{{--                    <img src="{{ asset('img/icons/igIcon.svg') }}" alt="instagram icon') }}" />--}}
+{{--                </a>--}}
             </div>
 
             <div class="language-block">
