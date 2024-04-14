@@ -10,6 +10,7 @@
             margin: 0;
             padding: 0;
         }
+
         .email-container {
             background-color: #ffffff;
             margin: 20px auto;
@@ -18,16 +19,19 @@
             max-width: 600px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .header {
             background-color: #007bff;
             color: white;
             padding: 10px 20px;
             text-align: center;
         }
+
         .content {
             padding: 20px;
             line-height: 1.6;
         }
+
         .footer {
             text-align: center;
             padding: 10px 20px;
@@ -45,6 +49,7 @@
         <p>Здравствуйте,</p>
         <p>Вы получили новую заявку от пользователя:</p>
         <ul>
+            <li>Дата: {{ $created_at }}</li>
             <li>Имя: {{ $first_name }}</li>
             <li>Фамилия: {{ $first_name ?? 'Не указано' }}</li>
             <li>Email: {{ $email ?? 'Не указан' }}</li>
@@ -59,7 +64,7 @@
             </li>
             <li>Тип помещения:
                 {!!
-                    match ($room_type) {
+                    match ($room_type->value) {
                     'mall' => 'ТРЦ',
                     'business_center' => 'Бизнес центр',
                     'hotel' => 'Гостиничный бизнес',
@@ -70,7 +75,7 @@
                 !!}
             </li>
             <li>Размер помещения: {{ $room_dimensions ?? 'Не указан' }}</li>
-            <li>Коды товара/Артикулы: {{ $sky ?? 'Не указано' }}</li>
+            <li>Коды товара/Артикулы: {{ $sku ?? 'Не указано' }}</li>
             <li>Комментарий: {{ $comment ?? 'Не указан' }}</li>
         </ul>
         <p>Пожалуйста, проверьте детали заявки в вашей системе.</p>

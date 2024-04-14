@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('room_scheme')->nullable();
             $table->string('room_type');
             $table->json('comment')->nullable();
-            $table->string('sku')->nullable();
+            $table->json('sku')->nullable();
             $table->string('status');
             $table->dateTime('start_at')->nullable();
             $table->dateTime('close_at')->nullable();
