@@ -101,10 +101,12 @@ return [
 
         'mailtrap' => [
             'transport' => 'smtp',
+            'port' => env('MAIL_TRAP_PORT'),
             'host' => env('MAIL_TRAP_HOST'),
             'username' => env('MAIL_TRAP_USERNAME'),
             'password' => env('MAIL_TRAP_PASSWORD'),
             'auth' => env('MAIL_TRAP_AUTH'),
+            'encryption' => env('MAIL_TRAP_ENCRYPTION'),
         ]
     ],
 

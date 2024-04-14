@@ -42,7 +42,7 @@
 
                 <form class="form" action="{{ route('bid.store') }}" method="POST">
                     @csrf
-                    @method('POST')
+                    {{ csrf_field() }}
                     <div class="input-row fi">
                         <div class="input-block">
                             <label for="fname"><span class="required">*</span> Имя</label>
