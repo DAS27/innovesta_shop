@@ -8,7 +8,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Log;
 use Innovesta\Bid\Dto\BidDto;
 use Innovesta\Bid\Requests\BidCreateRequests;
 use Innovesta\Bid\UseCases\CreateBidUseCase;
@@ -29,12 +28,13 @@ final class BidController extends AbstractController
         CreateBidUseCase $createBidUseCase,
         JobDispatcherInterface $jobDispatcher
     ): JsonResponse {
-        Log::info($request->all());
         $bidDto = BidDto::from($request->all());
         $createBidUseCase->handle($bidDto);
 
         $jobDispatcher->dispatch(new ProcessSendEmailJob($bidDto));
 
-        return $this->sendResponse(['message' => 'Bid created'], Response::HTTP_CREATED);
+        return $this->sendResponse([
+            'message' => 'Bid successfully created'
+        ], Response::HTTP_CREATED);
     }
 }

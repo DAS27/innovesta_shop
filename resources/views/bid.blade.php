@@ -42,7 +42,6 @@
 
                 <form class="form" method="POST">
                     @csrf
-                    {{ csrf_field() }}
                     <div class="input-row fi">
                         <div class="input-block">
                             <label for="fname"><span class="required">*</span> Имя</label>
@@ -126,8 +125,8 @@
                     <div class="input-row room-info">
                         <div class="input-block">
                             <label for="room-types">Тип помещения</label>
-                            <select class="select" name="room-types" id="room-types">
-                                <option value="mall">Для ТРЦ</option>
+                            <select class="select" name="room_type" id="room-types">
+                                <option value="mall" selected>Для ТРЦ</option>
                                 <option value="business_center">Бизнес центры</option>
                                 <option value="hotel">Гостиничный бизнес</option>
                                 <option value="restaurant">Рестораны и кафе</option>
@@ -153,7 +152,7 @@
                         <div class="input-block">
                             <label for="comments">Комментарии для консультанта</label>
                             <textarea
-                                name="comments"
+                                name="comment"
                                 id="comments"
                                 placeholder="Например: Хочу обустроить небольшое помещение кафе в стиле ретро"
                             ></textarea>
