@@ -91,6 +91,8 @@ return [
         ],
 
         'mailgun' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_HOST'),
             'domain' => env('MAILGUN_DOMAIN'),
             'secret' => env('MAILGUN_SECRET'),
             'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),

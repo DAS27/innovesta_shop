@@ -6,6 +6,8 @@ namespace Innovesta\Notification\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
 use Innovesta\Bid\Dto\BidDto;
 
 final class BidEmail extends Mailable
@@ -16,16 +18,24 @@ final class BidEmail extends Mailable
         private readonly BidDto $bidDto
     ) {}
 
-    public function build(): self
+    /**
+     * Get the message envelope.
+     */
+    public function envelope(): Envelope
     {
-        /*
-         return $this->markdown('emails.send-email-verification-code', [
-            'code' => $this->code
-        ])->subject(config('base.mail.subject.verification_code'));
-        */
+        return new Envelope(
+            subject: 'Новая заявка',
+        );
+    }
 
-        return $this->view('mail.bid', [
-            'bid' => $this->bidDto,
-        ]);
+    public function content(): Content
+    {
+        return new Content(
+            view: 'emails.new-bid',
+            with: [
+                'first_name' => $this->bidDto->first_name,
+                'phone' => $this->bidDto->phone,
+            ],
+        );
     }
 }

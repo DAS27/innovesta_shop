@@ -18,7 +18,7 @@ final class ProcessSendEmailJob extends BaseJob implements ShouldQueue
     public function __construct(
         private readonly BidDto $bidDto
     ) {
-        $this->queue = config('notification.base.queue');
+        $this->queue = config('notification.base.queue_name');
     }
 
     public function handle(
