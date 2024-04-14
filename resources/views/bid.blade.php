@@ -40,7 +40,7 @@
                     инструменты для ее достижения.
                 </p>
 
-                <form class="form" action="{{ route('bid.store') }}" method="POST">
+                <form class="form" method="POST">
                     @csrf
                     {{ csrf_field() }}
                     <div class="input-row fi">
@@ -118,6 +118,7 @@
                                 id="phone"
                                 name="phone"
                                 placeholder="+7(___)___-__-__"
+                                required
                             />
                         </div>
                     </div>
@@ -228,7 +229,6 @@
                         </div>
                     </div>
 
-{{--                    <button type="submit" class="order article-page" onclick="openModal('application')">--}}
                     <button type="submit" class="order article-page">
                         <span>Отправить заявку</span>
                         <img src="{{ asset('img/icons/applicationSendIcon.svg') }}" alt="bid send logo" />

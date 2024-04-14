@@ -537,11 +537,17 @@ function openSidebarCatalog(isMainPage = false) {
             </li>
 
             <li>
-              <a href="/hotel"><img class="catalog-modal-img" src="${imagesPath}/catalogModal3.png" alt="">Гостиничный бизнес</a>
+              <a href="/hotel">
+              <img class="catalog-modal-img" src="${imagesPath}/catalogModal3.png" alt="">
+                Гостиничный бизнес
+              </a>
             </li>
 
             <li>
-              <a href="/restaurant"><img class="catalog-modal-img" src="${imagesPath}/catalogModal4.png" alt="">Рестораны и кафе</a>
+              <a href="/restaurant">
+              <img class="catalog-modal-img" src="${imagesPath}/catalogModal4.png" alt="">
+                Рестораны и кафе
+              </a>
             </li>
 
             <li class="menu-parent-item">
@@ -656,9 +662,6 @@ function onFormSubmit(e) {
 
   fetch("/bid", {
     method: "post",
-    headers: {
-      "Content-Type": "multipart/form-data",
-    },
     body: data,
   })
     .then((response) => response.json())
