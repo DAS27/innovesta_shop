@@ -46,14 +46,38 @@
         <p>Вы получили новую заявку от пользователя:</p>
         <ul>
             <li>Имя: {{ $first_name }}</li>
+            <li>Фамилия: {{ $first_name ?? 'Не указано' }}</li>
             <li>Email: {{ $email ?? 'Не указан' }}</li>
             <li>Телефон: {{ $phone }}</li>
+            <li>Метод связи:
+                {!!
+                    match ($contact_method) {
+                    'phone' => 'Телефон',
+                    'email' => 'Email',
+                    'both' => 'Любой'}
+                 !!}
+            </li>
+            <li>Тип помещения:
+                {!!
+                    match ($room_type) {
+                    'mall' => 'ТРЦ',
+                    'business_center' => 'Бизнес центр',
+                    'hotel' => 'Гостиничный бизнес',
+                    'restaurant' => 'Рестораны и кафе',
+                    'coworking_space' => 'Сoworking пространсва',
+                    'gaming_club' => 'Gaming клубы',
+                    }
+                !!}
+            </li>
+            <li>Размер помещения: {{ $room_dimensions ?? 'Не указан' }}</li>
+            <li>Коды товара/Артикулы: {{ $sky ?? 'Не указано' }}</li>
+            <li>Комментарий: {{ $comment ?? 'Не указан' }}</li>
         </ul>
         <p>Пожалуйста, проверьте детали заявки в вашей системе.</p>
     </div>
     <div class="footer">
         С уважением,<br>
-        Ваша команда
+        Ваша команда Innovesta
     </div>
 </div>
 </body>

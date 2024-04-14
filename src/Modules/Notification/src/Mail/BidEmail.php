@@ -34,7 +34,13 @@ final class BidEmail extends Mailable
             view: 'emails.new-bid',
             with: [
                 'first_name' => $this->bidDto->first_name,
+                'last_name' => $this->bidDto->last_name,
+                'email' => $this->bidDto->email,
                 'phone' => $this->bidDto->phone,
+                'contact_method' => $this->bidDto->contact_method,
+                'room_type' => $this->bidDto->room_type,
+                'room_dimensions' => $this->bidDto->room_dimensions,
+                'comment' => $this->bidDto->comment,
             ],
         );
     }
