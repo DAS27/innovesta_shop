@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Innovesta\Notification\Jobs;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Innovesta\Bid\Dto\BidDto;
+use Innovesta\Bid\Entities\BidEntity;
 use Innovesta\Core\JobDispatcher\BaseJob;
 use Innovesta\Notification\UseCases\SendEmailBidUseCase;
 use Psr\Log\LoggerInterface;
@@ -15,10 +16,9 @@ final class ProcessSendEmailJob extends BaseJob implements ShouldQueue
 {
     public $tries = 3;
 
-    public function __construct(
-        private readonly BidDto $bidDto
-    ) {
-        $this->queue = config('notification.base.queue_name');
+    public function __construct(private readonly BidEntity $bidEntity)
+    {
+        $this->queue = config("notification.base.queue_name");
     }
 
     public function handle(
@@ -26,12 +26,15 @@ final class ProcessSendEmailJob extends BaseJob implements ShouldQueue
         LoggerInterface $logger
     ): void {
         try {
-            $sendEmailBidUseCase->handle($this->bidDto);
+            $sendEmailBidUseCase->handle($this->bidEntity);
         } catch (Throwable $th) {
-            $logger->critical(config('errors.send.email'), [
-                'name' => $this->bidDto->first_name,
-                'phone' => $this->bidDto->phone,
-                'message' => $th->getMessage(),
+            $logger->critical(config("errors.send.email"), [
+                "name" => $this->bidEntity->first_name,
+                "phone" => $this->bidEntity->phone,
+                "created_at" => Carbon::parse(
+                    $this->bidEntity->created_at
+                )->timezone("Asia/Almaty"),
+                "message" => $th->getMessage(),
             ]);
 
             throw $th;

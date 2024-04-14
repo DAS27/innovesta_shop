@@ -29,9 +29,9 @@ final class BidController extends AbstractController
         JobDispatcherInterface $jobDispatcher
     ): JsonResponse {
         $bidDto = BidDto::from($request->all());
-        $createBidUseCase->handle($bidDto);
+        $bidEntity = $createBidUseCase->handle($bidDto);
 
-        $jobDispatcher->dispatch(new ProcessSendEmailJob($bidDto));
+        $jobDispatcher->dispatch(new ProcessSendEmailJob($bidEntity));
 
         return $this->sendResponse([
             'message' => 'Bid successfully created'

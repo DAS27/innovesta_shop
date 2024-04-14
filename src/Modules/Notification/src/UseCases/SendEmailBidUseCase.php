@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Innovesta\Notification\UseCases;
 
-use Innovesta\Bid\Dto\BidDto;
+use Innovesta\Bid\Entities\BidEntity;
 
 interface SendEmailBidUseCase
 {
-    public function handle(BidDto $bidDto): void;
+    public function handle(BidEntity $bidEntity): void;
 }

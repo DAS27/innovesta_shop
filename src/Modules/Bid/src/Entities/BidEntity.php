@@ -19,6 +19,7 @@ final class BidEntity extends Data
         public string $contact_method,
         public BidStatusEnum $status,
         public RoomTypeEnum $room_type,
+        public string $created_at,
         public ?int $room_dimensions = null,
         public ?string $comment = null,
         public ?string $sku = null,

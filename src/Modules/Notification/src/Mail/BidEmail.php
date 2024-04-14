@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Innovesta\Notification\Mail;
 
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Innovesta\Bid\Dto\BidDto;
+use Innovesta\Bid\Entities\BidEntity;
 
 final class BidEmail extends Mailable
 {
     use Queueable;
 
     public function __construct(
-        private readonly BidDto $bidDto
+        private readonly BidEntity $bidEntity
     ) {}
 
     /**
@@ -23,9 +24,7 @@ final class BidEmail extends Mailable
      */
     public function envelope(): Envelope
     {
-        return new Envelope(
-            subject: 'Новая заявка',
-        );
+        return new Envelope(subject: "Новая заявка");
     }
 
     public function content(): Content
@@ -33,15 +32,19 @@ final class BidEmail extends Mailable
         return new Content(
             view: 'emails.new-bid',
             with: [
-                'first_name' => $this->bidDto->first_name,
-                'last_name' => $this->bidDto->last_name,
-                'email' => $this->bidDto->email,
-                'phone' => $this->bidDto->phone,
-                'contact_method' => $this->bidDto->contact_method,
-                'room_type' => $this->bidDto->room_type,
-                'room_dimensions' => $this->bidDto->room_dimensions,
-                'comment' => $this->bidDto->comment,
-            ],
+                "created_at" => Carbon::parse(
+                    $this->bidEntity->created_at
+                )->timezone("Asia/Almaty"),
+                "first_name" => $this->bidEntity->first_name,
+                "last_name" => $this->bidEntity->last_name,
+                "email" => $this->bidEntity->email,
+                "phone" => $this->bidEntity->phone,
+                "contact_method" => $this->bidEntity->contact_method,
+                "room_type" => $this->bidEntity->room_type,
+                "room_dimensions" => $this->bidEntity->room_dimensions,
+                "sku" => $this->bidEntity->sku,
+                "comment" => $this->bidEntity->comment,
+            ]
         );
     }
 }
