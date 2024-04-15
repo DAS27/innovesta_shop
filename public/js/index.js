@@ -440,6 +440,30 @@ function fillSidebarMenuContent(isMainPage) {
         </a>
       </div>
     `;
+
+    const contactsSidebar = document.querySelector(".d-flex .contacts-popup");
+    const phoneBlock = document.querySelector(".d-flex .phone-block.phone");
+
+    function isPhoneBlock(element) {
+        if (element.classList.contains("phone-block")) {
+            return true;
+        } else if (element.parentElement) {
+            return isPhoneBlock(element.parentElement);
+        }
+        return false;
+    }
+
+    sidebar.addEventListener("click", (e) => {
+        const isContactsShown = contactsSidebar.classList.contains(
+            "show-contacts-popup"
+        );
+
+        if (isPhoneBlock(e.target)) return;
+
+        if (e.target !== phoneBlock && isContactsShown) {
+            contactsSidebar.classList.toggle("show-contacts-popup");
+        }
+    });
 }
 
 function openSidebarSearch(isMainPage = false) {
