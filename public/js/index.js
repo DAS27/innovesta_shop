@@ -572,7 +572,7 @@ function openSidebarCatalog(isMainPage = false) {
 
   // Получим все родительские элементы в меню
   const sidebarAccordeon = document.querySelectorAll(
-    ".sidebar .menu-parent-item a:first-child"
+    ".sidebar .menu-parent-item a:first-child",
   );
 
   const accordeonFunction = function () {
@@ -618,26 +618,37 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.querySelector("#phone").onkeydown = function (e) {
-    inputPhone(e, document.querySelector("#phone"));
+  inputphone(e, document.querySelector("#phone"));
 };
 
-function inputPhone(e, phone) {
-    const key = e.key;
-    const isDigit = /\d/.test(key);
-    const isControlKey = ['Backspace', 'ArrowLeft', 'ArrowRight', 'Tab'].includes(key);
+function inputphone(e, phone) {
+  function stop(evt) {
+    evt.preventDefault();
+  }
 
-    if (!isDigit && !isControlKey) {
-        e.preventDefault();
-        return;
+  const key = e.key;
+  const v = phone.value;
+  const not = key.replace(/([0-9])/, 1);
+
+  if (not == 1 || "Backspace" === not) {
+    if ("Backspace" != not) {
+      if (v.length < 3 || v === "") {
+        phone.value = "+7(";
+      }
+      if (v.length === 6) {
+        phone.value = v + ")";
+      }
+      if (v.length === 10) {
+        phone.value = v + "-";
+      }
+      if (v.length === 13) {
+        phone.value = v + "-";
+      }
+      if (v.length > 15) e.preventDefault();
     }
-
-    setTimeout(() => {
-        let value = phone.value.replace(/\D/g, '');
-
-        value = value.replace(/^(\d{1})(\d{3})(\d{3})(\d{2})(\d{2})$/, '+7($2)$3-$4-$5');
-
-        phone.value = value;
-    }, 0);
+  } else {
+    stop(e);
+  }
 }
 
 const form = document.querySelector(".form");
@@ -653,15 +664,17 @@ function onFormSubmit(e) {
     method: "post",
     body: data,
     headers: {
-        'Accept': 'application/json',
-        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      Accept: "application/json",
+      "X-CSRF-TOKEN": document
+        .querySelector('meta[name="csrf-token"]')
+        .getAttribute("content"),
     },
   })
-      .then(response => {
-          if (response.status === 201) {
-              openModal("application");
-          }
-          return response.json(); // Парсим ответ в JSON
-      })
-      .catch((err) => console.log(err));
+    .then((response) => {
+      if (response.status === 201) {
+        openModal("application");
+      }
+      return response.json(); // Парсим ответ в JSON
+    })
+    .catch((err) => console.log(err));
 }
