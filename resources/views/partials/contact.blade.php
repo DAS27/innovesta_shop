@@ -27,7 +27,7 @@
                     <p class="contact-popup-info">i.mustapayev@mercurydesigns.kz</p>
                 </a>
 
-                <a class="contacts-popup-variant" href="#">
+                <a class="contacts-popup-variant" href="https://wa.me/77019997980?text=">
                     <img
                         class="contact-popup-variant-img"
                         src="{{ asset('img/icons/wsBlackIcon.svg') }}"
@@ -36,7 +36,7 @@
                     <p class="contact-popup-info">+7 701 999 7980</p>
                 </a>
 
-                <a class="contacts-popup-variant" href="#">
+                <a class="contacts-popup-variant" href="https://t.me/ilyasmenace">
                     <img
                         class="contact-popup-variant-img"
                         src="{{ asset('img/icons/tgBlackIcon.svg') }}"

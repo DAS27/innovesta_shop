@@ -8,11 +8,11 @@
     <nav class="sidebar"></nav>
     <div class="hidden-overley"></div>
 
-    <img
+    <!-- <img
         src="{{ asset('img/icons/searchIcon.svg') }}"
         alt=""
         onclick="openSidebarSearch(true)"
-    />
+    /> -->
 
     <a class="logo" href="{{ url('/') }}">
         <img src="{{ asset('img/icons/appLogo.svg') }}"  alt="'" />
