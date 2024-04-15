@@ -51,7 +51,7 @@
         <ul>
             <li>Дата: {{ $created_at }}</li>
             <li>Имя: {{ $first_name }}</li>
-            <li>Фамилия: {{ $first_name ?? 'Не указано' }}</li>
+            <li>Фамилия: {{ $last_name ?? 'Не указано' }}</li>
             <li>Email: {{ $email ?? 'Не указан' }}</li>
             <li>Телефон: {{ $phone }}</li>
             <li>Метод связи:
