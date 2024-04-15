@@ -36,3 +36,15 @@ hr {
     margin-top: 0;
   }
 }
+
+.products-list.wrapper {
+    padding: 0;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 376px) {
+  .directions-image {
+    width: 280px !important;
+    height: 280px !important;
+  }
+}

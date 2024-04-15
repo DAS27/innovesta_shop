@@ -304,3 +304,4 @@
         </main>
     </div>
 @endsection
+<script src="{{ asset("js/productsPageTabs.js") }}"></script>

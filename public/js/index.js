@@ -430,8 +430,8 @@ function fillSidebarMenuContent(isMainPage) {
           <li>
             <a onclick="openSidebarCatalog(${isMainPage})">Каталог</a>
           </li>
-          <li><a href="https://innovesta.kz/#why-us">О нас</a></li>
-          <li><a href="https://innovesta.kz/#showroom">Шоурумы</a></li>
+          <li><a href="https://innovesta.kz/#why-us" onclick="onShowSideBar()">О нас</a></li>
+          <li><a href="https://innovesta.kz/#showroom" onclick="onShowSideBar()">Шоурумы</a></li>
         </ul>
 
         <a class="order bottom-order" onclick="openModal('chat', ${isMainPage})">
@@ -441,6 +441,30 @@ function fillSidebarMenuContent(isMainPage) {
       </div>
     `;
 }
+
+const contactsSidebar = document.querySelector(".d-flex .contacts-popup");
+const phoneBlock = document.querySelector(".d-flex .phone-block.phone");
+
+function isPhoneBlock(element) {
+  if (element.classList.contains("phone-block")) {
+    return true;
+  } else if (element.parentElement) {
+    return isPhoneBlock(element.parentElement);
+  }
+  return false;
+}
+
+sidebar.addEventListener("click", (e) => {
+  const isContactsShown = contactsSidebar.classList.contains(
+    "show-contacts-popup"
+  );
+
+  if (isPhoneBlock(e.target)) return;
+
+  if (e.target !== phoneBlock && isContactsShown) {
+    contactsSidebar.classList.toggle("show-contacts-popup");
+  }
+});
 
 function openSidebarSearch(isMainPage = false) {
   const sidebar = document.querySelector(".sidebar");
@@ -503,7 +527,7 @@ function openSidebarCatalog(isMainPage = false) {
 
   sidebar.innerHTML = `
       <div class="d-flex p-2">
-        <a class="side-catalog-back" onclick="fillSidebarMenuContent(${isMainPage})"></a>
+        <a class="side-catalog-back" onclick="fillSidebarMenuContent(${isMainPage})">&#129044;</a>
 
         <div id="nav-icon3" class="pushmenu opened" onclick="onShowSideBar()"></div>
       </div>
