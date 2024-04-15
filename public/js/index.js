@@ -698,7 +698,6 @@ function onFormSubmit(e) {
       if (response.status === 201) {
         openModal("application");
       }
-      return response.json(); // Парсим ответ в JSON
     })
     .catch((err) => console.log(err));
 }
