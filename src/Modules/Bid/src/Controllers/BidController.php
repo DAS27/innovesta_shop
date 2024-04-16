@@ -30,13 +30,19 @@ final class BidController extends AbstractController
         SaveRoomSchemeUseCase $saveRoomSchemeUseCase,
         JobDispatcherInterface $jobDispatcher
     ): JsonResponse {
-        if ($request->hasFile('room_scheme')) {
-            $path = $saveRoomSchemeUseCase->handle($request->file('room_scheme'));
+        $validatedData = $request->all();
 
-            $request->merge(['room_scheme' => $path]);
+        $roomSchemePath = null;
+        if ($request->hasFile('room_scheme')) {
+            $roomSchemePath = $saveRoomSchemeUseCase->handle($request->file('room_scheme'));
         }
 
-        $bidDto = BidDto::from($request->all());
+        $data = array_merge($validatedData, [
+            'room_scheme' => $roomSchemePath,
+        ]);
+
+        $bidDto = BidDto::from($data);
+        $bidDto->room_scheme = $roomSchemePath;
         $bidEntity = $createBidUseCase->handle($bidDto);
 
         $jobDispatcher->dispatch(new ProcessSendEmailJob($bidEntity));
