@@ -52,8 +52,11 @@ final class BidEmail extends Mailable
 
     public function attachments(): array
     {
-        return [
-            Attachment::fromStorage($this->bidEntity->room_scheme),
-        ];
+        $attachments = [];
+        if ($this->bidEntity->room_scheme !== null) {
+            $attachments[] = Attachment::fromStorage($this->bidEntity->room_scheme);
+        }
+
+        return $attachments;
     }
 }
