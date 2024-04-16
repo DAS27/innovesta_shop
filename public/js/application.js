@@ -19,16 +19,16 @@ function fillFilesPreview(filesList) {
         </div>
         <div class="preview-info">
           <p class="preview-file-name" title="${
-              filesList[i].name
-          }">${fileNameSlice(filesList[i].name)}</p>
+            filesList[i].name
+        }">${fileNameSlice(filesList[i].name)}</p>
           <p class="preview-file-size">${returnFileSize(filesList[i].size)}</p>
         </div>
       </div>
 
       <img
-        src="../images/icons/trashIcon.svg"
+        src="../img/icons/trashIcon.svg"
         alt="delete icon"
-        onclick="onFileDelete('${filesList[i].name}')" 
+        onclick="onFileDelete('${filesList[i].name}')"
       />
     `;
     }

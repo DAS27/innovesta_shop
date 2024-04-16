@@ -10,15 +10,16 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Support\Facades\Storage;
 use Innovesta\Bid\Entities\BidEntity;
+use Innovesta\Bid\Entities\BidFileEntity;
 
 final class BidEmail extends Mailable
 {
     use Queueable;
 
     public function __construct(
-        private readonly BidEntity $bidEntity
+        private readonly BidEntity $bidEntity,
+        private readonly array $roomSchemePaths,
     ) {}
 
     /**
@@ -53,8 +54,9 @@ final class BidEmail extends Mailable
     public function attachments(): array
     {
         $attachments = [];
-        if ($this->bidEntity->room_scheme !== null) {
-            $attachments[] = Attachment::fromStorage($this->bidEntity->room_scheme);
+        /** @var BidFileEntity $item */
+        foreach ($this->roomSchemePaths as $item) {
+            $attachments[] = Attachment::fromStorage($item->path);
         }
 
         return $attachments;

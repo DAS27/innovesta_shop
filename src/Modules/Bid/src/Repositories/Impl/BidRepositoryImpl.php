@@ -14,7 +14,6 @@ use Ramsey\Uuid\Uuid;
 
 final class BidRepositoryImpl implements BidRepository
 {
-
     public function store(BidDto $bidDto): BidEntity
     {
         $bid = new BidModel();
@@ -29,7 +28,6 @@ final class BidRepositoryImpl implements BidRepository
         $bid->room_dimensions = $bidDto->room_dimensions;
         $bid->comment = $bidDto->comment ? json_encode($bidDto->comment) : null;
         $bid->sku = $bidDto->sku ? json_encode($bidDto->sku) : null;
-        $bid->room_scheme = $bidDto->room_scheme;
         $bid->save();
 
         return $this->buildEntityFromModel($bid);

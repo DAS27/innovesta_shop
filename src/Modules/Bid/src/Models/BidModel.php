@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Innovesta\Bid\Models;
 
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Innovesta\Bid\Enums\BidStatusEnum;
 use Innovesta\Bid\Enums\RoomTypeEnum;
 use Innovesta\Main\Models\AbstractStringableModel;
@@ -17,7 +18,6 @@ use Innovesta\Main\Models\AbstractStringableModel;
  * @property string $contact_method
  * @property RoomTypeEnum $room_type
  * @property ?int $room_dimensions
- * @property ?string $room_scheme
  * @property ?string $comment
  * @property ?string $sku
  * @property BidStatusEnum $status
@@ -39,9 +39,13 @@ final class BidModel extends AbstractStringableModel
         'contact_method',
         'room_type',
         'room_dimensions',
-        'room_scheme',
         'comment',
         'sku',
         'status',
     ];
+
+    public function files(): HasMany
+    {
+        return $this->hasMany(BidFileModel::class, 'bid_id', 'id');
+    }
 }

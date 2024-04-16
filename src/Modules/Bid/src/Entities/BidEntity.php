@@ -23,7 +23,6 @@ final class BidEntity extends Data
         public ?int $room_dimensions = null,
         public ?string $comment = null,
         public ?string $sku = null,
-        public ?string $room_scheme = null,
     ) {
     }
 }

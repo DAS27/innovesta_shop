@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Innovesta\Bid\UseCases\Impl;
 
-use Symfony\Component\HttpFoundation\File\File;
+use Innovesta\Bid\Entities\BidFileEntity;
 use Innovesta\Bid\Services\SaveRoomSchemeService;
 use Innovesta\Bid\UseCases\SaveRoomSchemeUseCase;
 
@@ -14,8 +14,8 @@ final readonly class SaveRoomSchemeUseCaseImpl implements SaveRoomSchemeUseCase
         private SaveRoomSchemeService $saveRoomSchemeService
     ) {}
 
-    public function handle(File $file): string
+    public function handle(string $bidId, array $files): void
     {
-        return $this->saveRoomSchemeService->handle($file);
+        $this->saveRoomSchemeService->handle($bidId, $files);
     }
 }

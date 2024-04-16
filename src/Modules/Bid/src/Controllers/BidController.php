@@ -10,6 +10,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\JsonResponse;
 use Innovesta\Bid\Dto\BidDto;
 use Innovesta\Bid\Requests\BidCreateRequests;
+use Innovesta\Bid\Services\GetFilesByIdService;
 use Innovesta\Bid\UseCases\CreateBidUseCase;
 use Innovesta\Bid\UseCases\SaveRoomSchemeUseCase;
 use Innovesta\Core\JobDispatcher\JobDispatcherInterface;
@@ -28,24 +29,19 @@ final class BidController extends AbstractController
         BidCreateRequests $request,
         CreateBidUseCase $createBidUseCase,
         SaveRoomSchemeUseCase $saveRoomSchemeUseCase,
+        GetFilesByIdService $getFilesByIdService,
         JobDispatcherInterface $jobDispatcher
     ): JsonResponse {
-        $validatedData = $request->all();
-
-        $roomSchemePath = null;
-        if ($request->hasFile('room_scheme')) {
-            $roomSchemePath = $saveRoomSchemeUseCase->handle($request->file('room_scheme'));
-        }
-
-        $data = array_merge($validatedData, [
-            'room_scheme' => $roomSchemePath,
-        ]);
-
-        $bidDto = BidDto::from($data);
-        $bidDto->room_scheme = $roomSchemePath;
+        $bidDto = BidDto::from($request->all());
         $bidEntity = $createBidUseCase->handle($bidDto);
 
-        $jobDispatcher->dispatch(new ProcessSendEmailJob($bidEntity));
+        if ($request->hasFile('files')) {
+            $saveRoomSchemeUseCase->handle($bidEntity->id, $request->file('files'));
+        }
+
+        $roomSchemePaths = $getFilesByIdService->handle($bidEntity->id);
+
+        $jobDispatcher->dispatch(new ProcessSendEmailJob($bidEntity, $roomSchemePaths));
 
         return $this->sendResponse(
             [

@@ -4,15 +4,31 @@ declare(strict_types=1);
 
 namespace Innovesta\Bid\Services\impl;
 
-use Symfony\Component\HttpFoundation\File\File;
+use Innovesta\Bid\Dto\BidFileDto;
+use Innovesta\Bid\Entities\BidFileEntity;
+use Innovesta\Bid\Repositories\BidFileRepository;
 use Innovesta\Bid\Services\SaveRoomSchemeService;
+use Ramsey\Uuid\Uuid;
 
-final class SaveRoomSchemeServiceImpl implements SaveRoomSchemeService
+final readonly class SaveRoomSchemeServiceImpl implements SaveRoomSchemeService
 {
-    public function handle(File $file): string
-    {
-        $filename = time() . '_' . $file->getClientOriginalName();
+    public function __construct(
+        private BidFileRepository $bidFileRepository
+    ) {}
 
-        return $file->storeAs('uploads', $filename, 'local');
+    public function handle(string $bidId, array $files): void
+    {
+        foreach ($files as $file) {
+            $filename = Uuid::uuid4()->toString();
+            $path = $file->storeAs('uploads', $filename, 'local');
+
+            $this->bidFileRepository->store(new BidFileDto(
+                name: $filename,
+                bid_id: $bidId,
+                path: $path,
+                mime_type: $file->getClientMimeType(),
+                size: $file->getSize()
+            ));
+        }
     }
 }

@@ -23,7 +23,7 @@ final class BidCreateRequests extends FormRequest
             'room_dimensions' => ['integer', 'nullable'],
             'comments' => ['string', 'nullable'],
             'sku' => ['string', 'nullable'],
-            'room_scheme' => ['file', 'nullable'],
+            'files' => ['array', 'nullable'],
         ];
     }
 

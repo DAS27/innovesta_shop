@@ -40,7 +40,7 @@
                     инструменты для ее достижения.
                 </p>
 
-                <form class="form" method="POST">
+                <form class="form" id="bid-form" method="POST">
                     @csrf
                     <div class="input-row fi">
                         <div class="input-block">
@@ -168,10 +168,10 @@
                             <p>Схема помещения</p>
                             <div class="upload-container">
                                 <label class="room-scheme-label" for="room-scheme">
-                    <span class="room-scheme-label-text"
-                    >Выберете файл или перенесите в эту область (допустимый
-                      форматы файла - png, jpeg, pdf)</span
-                    >
+                                    <span class="room-scheme-label-text"
+                                    >Выберете файл или перенесите в эту область (допустимый
+                                      форматы файла - png, jpeg, pdf)
+                                    </span>
                                     <p class="upload-button black-button">
                                         Выбрать файл
                                         <svg
@@ -192,10 +192,13 @@
                                     class="room-scheme-upload"
                                     type="file"
                                     id="room-scheme"
-                                    name="room_scheme"
+                                    name="files"
+                                    accept=".png, .jpeg, .jpg, .pdf"
+                                    multiple
                                 />
                             </div>
-                            <p class="tip">Максимальное количество файлов 10 шт, 100 мб</p>
+                            <div class="preview"></div>
+                            <p class="tip">Максимальное количество файлов 10 шт, 15 мб</p>
                         </div>
                     </div>
 
@@ -237,3 +240,4 @@
         </main>
     </div>
 @endsection
+

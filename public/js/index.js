@@ -682,11 +682,17 @@ form.addEventListener("submit", (event) => onFormSubmit(event));
 function onFormSubmit(e) {
   e.preventDefault();
 
-  const data = new FormData(form);
+  const formData = new FormData(form);
+  const files = document.getElementById('room-scheme').files;
+
+  for (let i = 0; i < files.length; i++) {
+    formData.append('files[]', files[i]);
+  }
+
 
   fetch("/bid", {
     method: "post",
-    body: data,
+    body: formData,
     headers: {
       Accept: "application/json",
       "X-CSRF-TOKEN": document
