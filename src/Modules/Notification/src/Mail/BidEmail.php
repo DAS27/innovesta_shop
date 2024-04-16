@@ -9,6 +9,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Support\Facades\Storage;
 use Innovesta\Bid\Entities\BidEntity;
 
 final class BidEmail extends Mailable
@@ -18,6 +19,18 @@ final class BidEmail extends Mailable
     public function __construct(
         private readonly BidEntity $bidEntity
     ) {}
+
+    public function build(): BidEmail
+    {
+        $email = $this->view('emails.bid')
+            ->subject('Детали заявки');
+
+        if ($this->bidEntity->room_scheme && Storage::exists($this->bidEntity->room_scheme)) {
+            $email->attachFromStorage($this->bidEntity->room_scheme);
+        }
+
+        return $email;
+    }
 
     /**
      * Get the message envelope.
