@@ -32,9 +32,7 @@ final class BidController extends AbstractController
     ): JsonResponse {
         if ($request->hasFile('room_scheme')) {
             $path = $saveRoomSchemeUseCase->handle($request->file('room_scheme'));
-        }
 
-        if ($path !== null) {
             $request->merge(['room_scheme' => $path]);
         }
 

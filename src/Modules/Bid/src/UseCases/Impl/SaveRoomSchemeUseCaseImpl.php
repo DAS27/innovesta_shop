@@ -16,6 +16,6 @@ final readonly class SaveRoomSchemeUseCaseImpl implements SaveRoomSchemeUseCase
 
     public function handle(File $file): string
     {
-        $this->saveRoomSchemeService->handle($file);
+        return $this->saveRoomSchemeService->handle($file);
     }
 }
