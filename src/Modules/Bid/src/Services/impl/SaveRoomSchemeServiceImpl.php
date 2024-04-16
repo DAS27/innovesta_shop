@@ -6,6 +6,7 @@ namespace Innovesta\Bid\Services\impl;
 
 use Symfony\Component\HttpFoundation\File\File;
 use Innovesta\Bid\Services\SaveRoomSchemeService;
+
 final class SaveRoomSchemeServiceImpl implements SaveRoomSchemeService
 {
     public function handle(File $file): string
