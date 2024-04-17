@@ -30,7 +30,7 @@
                     />
                 </svg>
             </div>
-            Мебель для ТРЦ
+            ТОРГОВО РАЗВЛЕКАТЕЛЬНЫЕ ЦЕНТРЫ
         </a>
         <a
             href="{{ url('/business-center') }}"
@@ -50,8 +50,8 @@
                     />
                 </svg>
             </div>
-            Мебель для БЦ</a
-        >
+            ОФИСЫ
+        </a>
         <a
             href="{{ url('/hotel') }}"
             class="directions-link"
@@ -70,8 +70,8 @@
                     />
                 </svg>
             </div>
-            Мебель для гостиничного бизнеса</a
-        >
+            ГОСТИНИЧНЫЙ БИЗНЕС
+        </a>
         <a
             href="{{ url('/restaurant') }}"
             class="directions-link"
@@ -90,8 +90,8 @@
                     />
                 </svg>
             </div>
-            Мебель для ресторанов/кафе</a
-        >
+            РЕСТОРАНЫ И КАФЕ
+        </a>
         <a
             href="{{ url('/coworking') }}"
             class="directions-link"
@@ -110,8 +110,8 @@
                     />
                 </svg>
             </div>
-            Мебель для coworking</a
-        >
+            COWORNIKG ПРОСТРАНСТВА
+        </a>
         <a
             href="{{ url('gaming-club') }}"
             class="directions-link"
@@ -130,8 +130,8 @@
                     />
                 </svg>
             </div>
-            Мебель для gaming клубов</a
-        >
+            GAMING КЛУБЫ
+        </a>
 
         <img
             class="directions-image"

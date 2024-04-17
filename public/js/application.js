@@ -26,7 +26,8 @@ function fillFilesPreview(filesList) {
       </div>
 
       <img
-        src="../img/icons/trashIcon.svg"
+        class="preview-delete-icon"
+        src="./img/icons/trashIcon.svg"
         alt="delete icon"
         onclick="onFileDelete('${filesList[i].name}')"
       />

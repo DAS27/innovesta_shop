@@ -44,7 +44,7 @@
                         Мебель для конференц-залов
                     </button>
                     <button class="tablink tab5" onclick="openTab(event, 'tab5')">
-                        Скамьи для ожидания
+                        Скамьи для зоны ожидания
                     </button>
                 </div>
 
