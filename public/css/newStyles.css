@@ -89,6 +89,10 @@ hr {
   object-position: center center;
 }
 
+.preview-delete-icon {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 440px) {
   .title {
     margin-top: 0;
