@@ -527,8 +527,9 @@ function openSidebarCatalog(isMainPage = false) {
 
   sidebar.innerHTML = `
       <div class="d-flex p-2">
-        <a class="side-catalog-back" onclick="fillSidebarMenuContent(${isMainPage})">&#129044;</a>
-
+        <a class="side-catalog-back" onclick="fillSidebarMenuContent(${isMainPage})">
+            <img src="${imagesPath}/icons/goBackIcon.svg" alt="back icon"/>
+        </a>
         <div id="nav-icon3" class="pushmenu opened" onclick="onShowSideBar()"></div>
       </div>
 
