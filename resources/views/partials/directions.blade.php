@@ -110,7 +110,7 @@
                     />
                 </svg>
             </div>
-            COWORNIKG ПРОСТРАНСТВА
+            COWORKING ПРОСТРАНСТВА
         </a>
         <a
             href="{{ url('gaming-club') }}"
