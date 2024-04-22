@@ -28,6 +28,7 @@
             "Innovesta\\Main\\": "src/Modules/Main/src/",
             "Innovesta\\Bid\\": "src/Modules/Bid/src/",
             "Innovesta\\Notification\\": "src/Modules/Notification/src/",
+            "Innovesta\\Locale\\": "src/Modules/Locale/src/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

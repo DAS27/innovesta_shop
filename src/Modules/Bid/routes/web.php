@@ -6,6 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Innovesta\Bid\Controllers\BidController;
 
 Route::controller(BidController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
+    Route::get('/', 'index')->name('index')->middleware('set-locale');
     Route::post('/', 'store')->name('store');
 });

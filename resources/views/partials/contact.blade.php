@@ -74,12 +74,20 @@
 {{--                </a>--}}
             </div>
 
-            <div class="language-block">
-                <select class="language">
-                    <option value="ru">ru</option>
-                    <option value="kz">kz</option>
-                </select>
+            <div class="locale-block">
+                <form action="{{ route('locale.change') }}" method="POST">
+                    @csrf
+                    <select name="locale" class="language" onchange="this.form.submit()">
+                        <option value="kz" {{ session('locale', 'kz') === 'kz' ? 'selected' : '' }}>
+                            kz
+                        </option>
+                        <option value="ru" {{ session('locale', 'ru') === 'ru' ? 'selected' : '' }}>
+                            ru
+                        </option>
+                    </select>
+                </form>
             </div>
+
         </div>
     </div>
 </div>

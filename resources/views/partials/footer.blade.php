@@ -6,15 +6,12 @@
                     <img class="footer-logo" src="{{ asset('img/icons/appLogo.svg') }}"  alt=""/>
                 </a>
 
-                <p class="footer-text text">
-                    Предоставляем широкий выбор высококачественной мебели для
-                    различных коммерческих объектов
-                </p>
+                <p class="footer-text text">{{ __('messages.footer.desc') }}</p>
             </div>
 
             <div class="navigation">
-                <a class="nav-link" href="{{ url('/#why-us')}}">О нас</a>
-                <a class="nav-link" href="{{ url('/#showroom') }}">Шоурумы</a>
+                <a class="nav-link" href="{{ url('/#why-us')}}">{{ __('messages.links.about_us') }}</a>
+                <a class="nav-link" href="{{ url('/#showroom') }}">{{ __('messages.links.show_room') }}</a>
             </div>
 
             <div class="footer-contacts">
@@ -31,11 +28,11 @@
                 </a>
                 <div class="contact-info">
                     <img src="{{ asset('img/icons/locationIcon.svg') }}" alt="location icon" />
-                    <span>г. Алматы, улица Байзакова, дом 280.</span>
+                    <span>{{ __('messages.address') }}</span>
                 </div>
                 <div class="contact-info">
                     <img src="{{ asset('img/icons/timeIcon.svg') }}" alt="time icon" />
-                    <span>Ежедневно с 09:00 до 18:00</span>
+                    <span>{{ __('messages.footer.work_time') }}</span>
                 </div>
             </div>
         </div>

@@ -46,8 +46,8 @@
         </div>
 
         <div class="navigation">
-            <a class="nav-link" href="{{ url('/#why-us') }}">О нас</a>
-            <a class="nav-link" href="{{ url('/#showroom') }}">Шоурумы</a>
+            <a class="nav-link" href="{{ url('/#why-us') }}">{{ __('messages.links.about_us') }}</a>
+            <a class="nav-link" href="{{ url('/#showroom') }}">{{ __('messages.links.show_room') }}</a>
         </div>
 
         <div class="catalog-with-order">
@@ -59,7 +59,7 @@
             />
 
             <button class="order" onclick="openModal('chat', true)">
-                Оформить заказ
+                {{ __('messages.btn.create_order') }}
                 <img src="{{ asset('img/icons/orderIcon.svg') }}" alt="" />
             </button>
         </div>
