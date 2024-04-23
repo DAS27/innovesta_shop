@@ -21,7 +21,7 @@
                 </div>
 
                 <ul class="breadcrumb">
-                    <li><a href="{{ url('/') }}">Главная</a></li>
+                    <li><a href="{{ url('/') }}">{{  }}</a></li>
                     <li>Мебель для БЦ</li>
                 </ul>
             </div>

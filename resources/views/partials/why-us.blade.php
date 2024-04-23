@@ -1,20 +1,16 @@
 <div class="wrapper why-us" id="why-us">
     <div class="why-us-info">
         <div class="why-us-description">
-            <h2 class="subtitle why-us-subtitle">Почему выбирают нас</h2>
+            <h2 class="subtitle why-us-subtitle">{{ __('messages.why_us.title') }}</h2>
 
-            <p class="text why-us-text">
-                Мы являемся надежным партнером для бизнеса, предлагающим широкий
-                ассортимент высококачественной коммерческой мебели для различных
-                отраслей и предприятий.
-            </p>
+            <p class="text why-us-text">{{ __('messages.why_us.desc') }}</p>
         </div>
 
         <button
             class="black-button see-catalog-button"
             onclick="openModal('catalog', true)"
         >
-            Посмотреть каталог
+            {{ __('messages.btn.show_catalog') }}
             <svg
                 width="18"
                 height="16"
@@ -32,13 +28,13 @@
 
     <div class="variants">
         <div class="variant-block block1">
-            <p class="variant-text">Эргономичная мебель для офисов</p>
+            <p class="variant-text">{{ __('messages.why_us.options.one') }}</p>
         </div>
         <div class="variant-block block2">
-            <p class="variant-text">Разнообразие вариантов</p>
+            <p class="variant-text">{{ __('messages.why_us.options.two') }}</p>
         </div>
         <div class="variant-block block3">
-            <p class="variant-text">идеально вписывается в дизайн</p>
+            <p class="variant-text">{{ __('messages.why_us.options.three') }}</p>
         </div>
     </div>
 </div>

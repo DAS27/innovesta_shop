@@ -2,25 +2,19 @@
     <div class="about-info">
         <div class="title-block">
             <h1 class="title">
-                Предоставим
+                {{ __('messages.about_us.title.part_1') }}
                 <img class="title-image" src="{{ asset('img/small img.png') }}" alt="" />
-                уникальные решения <br />
-                для вашего пространства
+                {!! __('messages.about_us.title.part_2')  !!}
             </h1>
         </div>
 
-        <div class="text about-text">
-            Наши функциональные и стильные решения предназначены для различных
-            коммерческих объектов, идеально сочетая в себе стиль и
-            практичность, чтобы ваше рабочее пространство было как комфортным,
-            так и продуктивным.
-        </div>
+        <div class="text about-text">{{ __('messages.about_us.desc') }}</div>
 
         <button
             class="black-button see-catalog-button about-button"
             onclick="openModal('catalog', true)"
         >
-            Посмотреть каталог
+            {{ __('messages.btn.show_catalog') }}
             <svg
                 width="18"
                 height="16"
@@ -54,8 +48,7 @@
                 />
             </div>
 
-            <span class="example-text"
-            >Эксклюзивные решения для любого интерьера</span
+            <span class="example-text">{{ __('messages.about_us.examples_text') }}</span
             >
         </div>
     </div>

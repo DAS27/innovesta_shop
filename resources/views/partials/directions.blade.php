@@ -1,14 +1,8 @@
 <div class="wrapper directions">
     <div class="directions-info">
-        <h2 class="subtitle">Наши направления</h2>
+        <h2 class="subtitle">{{ __('messages.directions.title') }}</h2>
 
-        <p class="text directions-text">
-            Наша миссия - мы стремимся обеспечить наших клиентов
-            высококачественной мебелью, которая сочетает в себе стиль, комфорт
-            и долговечность. Помогаем создать привлекательные и продуктивные
-            рабочие и коммерческие пространства, предлагая инновационные и
-            функциональные решения.
-        </p>
+        <p class="text directions-text">{{ __('messages.directions.our_mission') }}</p>
     </div>
 
     <div class="directions-links">
@@ -30,7 +24,7 @@
                     />
                 </svg>
             </div>
-            ТОРГОВО РАЗВЛЕКАТЕЛЬНЫЕ ЦЕНТРЫ
+            {{ \Illuminate\Support\Str::upper(__('messages.gc')) }}
         </a>
         <a
             href="{{ url('/business-center') }}"
@@ -70,7 +64,7 @@
                     />
                 </svg>
             </div>
-            ГОСТИНИЧНЫЙ БИЗНЕС
+            {{ \Illuminate\Support\Str::upper(__('messages.hotel')) }}
         </a>
         <a
             href="{{ url('/restaurant') }}"
@@ -90,7 +84,7 @@
                     />
                 </svg>
             </div>
-            РЕСТОРАНЫ И КАФЕ
+            {{ \Illuminate\Support\Str::upper(__('messages.restaurant')) }}
         </a>
         <a
             href="{{ url('/coworking') }}"
@@ -110,7 +104,7 @@
                     />
                 </svg>
             </div>
-            COWORKING ПРОСТРАНСТВА
+            {{ \Illuminate\Support\Str::upper(__('messages.cw')) }}
         </a>
         <a
             href="{{ url('gaming-club') }}"
@@ -130,7 +124,7 @@
                     />
                 </svg>
             </div>
-            GAMING КЛУБЫ
+            {{ \Illuminate\Support\Str::upper(__('messages.gc')) }}
         </a>
 
         <img

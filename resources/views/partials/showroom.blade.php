@@ -9,13 +9,9 @@
 
     <div class="showroom-description">
         <div>
-            <h2 class="subtitle">Шоурумы</h2>
+            <h2 class="subtitle">{{ __('messages.showroom.title') }}</h2>
 
-            <p class="text showroom-text">
-                Рады пригласить вас в наш шоурум Innovesta, расположенный <br />
-                в ТРЦ «Globus», где стиль встречает функциональность, <br />
-                а комфорт сливается с профессионализмом.
-            </p>
+            <p class="text showroom-text">{{ __('messages.showroom.desc') }}</p>
         </div>
 
         <div class="showroom-info-block">
@@ -28,11 +24,7 @@
                     />
                 </div>
 
-                <p class="showroom-info-text">
-                    Предлагаем вам возможность вживую оценить каждую деталь,
-                    каждый материал и каждый дизайн, чтобы помочь вам принять
-                    правильное решение для вашего бизнеса.
-                </p>
+                <p class="showroom-info-text">{{ __('messages.showroom.info.part_1') }}</p>
             </div>
 
             <div class="showroom-info">
@@ -44,17 +36,10 @@
                     />
                 </div>
 
-                <p class="showroom-info-text">
-                    Вы сможете ознакомиться с высоким качеством предлагаемой
-                    мебели, созданной для удовлетворения самых взыскательных
-                    потребностей бизнеса.
-                </p>
+                <p class="showroom-info-text">{{ __('messages.showroom.info.part_2') }}</p>
             </div>
         </div>
 
-        <p class="text">
-            Позвольте нам стать вашим гидом в мире стильного и функционального
-            офисного оборудования.
-        </p>
+        <p class="text">{{ __('messages.showroom.info.part_3') }}</p>
     </div>
 </div>
