@@ -12,7 +12,7 @@ final class EditRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'locale' => ['required', 'string', 'in:kz,ru'],
+            'locale' => ['required', 'string', 'in:kz,ru,en'],
         ];
     }
 }

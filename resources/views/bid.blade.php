@@ -142,7 +142,7 @@
                                 name="room_dimensions"
                                 placeholder="... кв.м"
                             />
-                            <p class="tip">Какого размера ваше помещение в кв.м</p>
+                            <p class="tip">{{ __('messages.form.room_size_tip') }}</p>
                         </div>
                     </div>
 
@@ -226,7 +226,6 @@
                     </div>
 
                     <button type="submit" class="order article-page">
-                        {{ session('locale') }}
                         <span>{{ __('messages.btn.send') }}</span>
                         <img src="{{ asset('img/icons/applicationSendIcon.svg') }}" alt="bid send logo" />
                     </button>

@@ -10,4 +10,5 @@ return [
     //Modules
     \Innovesta\Bid\Providers\BidServiceProvider::class,
     \Innovesta\Notification\Providers\NotificationServiceProvider::class,
+    \Innovesta\Locale\Providers\LocaleServiceProvider::class,
 ];

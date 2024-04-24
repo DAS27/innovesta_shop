@@ -24,7 +24,7 @@
                     />
                 </svg>
             </div>
-            {{ \Illuminate\Support\Str::upper(__('messages.gc')) }}
+            {{ \Illuminate\Support\Str::upper(__('messages.mall')) }}
         </a>
         <a
             href="{{ url('/business-center') }}"
@@ -44,7 +44,7 @@
                     />
                 </svg>
             </div>
-            ОФИСЫ
+            {{ \Illuminate\Support\Str::upper(__('messages.bc')) }}
         </a>
         <a
             href="{{ url('/hotel') }}"

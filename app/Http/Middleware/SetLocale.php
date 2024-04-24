@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Session;
 
 final class SetLocale
 {
@@ -18,12 +15,11 @@ final class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        if (Session::has('locale')) {
-            dd(Session::get('locale'));
-            App::setLocale(Session::get('locale'));
-        } else {
-            App::setLocale('kz');  // Установка языка по умолчанию, если в сессии нет locale
+        if (session()->has('locale')) {
+            app()->setLocale(session('locale'));
         }
+
+        app()->setLocale(config('app.locale'));
 
         return $next($request);
     }

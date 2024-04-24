@@ -21,7 +21,7 @@
                 </div>
 
                 <ul class="breadcrumb">
-                    <li><a href="{{ url('/') }}">Главная</a></li>
+                    <li><a href="{{ url('/') }}">{{ __('messages.breadcrumbs.main') }}</a></li>
                     <li>Мебель для ТРЦ</li>
                 </ul>
             </div>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('set-locale')
+Route::middleware('web')
     ->group(function () {
     Route::get('/', static fn () => view('app'));
     Route::get('/mall', static fn () => view('partials.products.mall'));
