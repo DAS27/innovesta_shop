@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Мебель для ТРЦ')
+@section('title', trans('messages.furniture.mall.title'))
 
 @section('content')
     <div class="container">
         <main class="application-main">
             <div class="wrapper content-top">
                 <div class="content-top-info content-producs">
-                    <h1 class="subtitle">Мебель для ТРЦ</h1>
+                    <h1 class="subtitle">{{ __('messages.furniture.mall.title') }}</h1>
                 </div>
 
                 <div class="content-top-image content-producs">
@@ -32,16 +32,16 @@
                         class="tablink active tab1"
                         onclick="openTab(event, 'tab1')"
                     >
-                        Диваны и пуфы для холла
+                        {{ __('messages.furniture.mall.sofas_poufs') }}
                     </button>
                     <button class="tablink tab2" onclick="openTab(event, 'tab2')">
-                        Кресла и стулья для холла
+                        {{ __('messages.furniture.mall.armchairs_chairs') }}
                     </button>
                     <button class="tablink tab3" onclick="openTab(event, 'tab3')">
-                        Столы для фудкорта
+                        {{ __('messages.furniture.mall.food_court_tables') }}
                     </button>
                     <button class="tablink tab4" onclick="openTab(event, 'tab4')">
-                        Стулья для фудкорта
+                        {{ __('messages.furniture.mall.food_court_chairs') }}
                     </button>
                 </div>
 

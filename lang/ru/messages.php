@@ -69,6 +69,13 @@ return [
         'chairs' => 'Кресла',
         'sofas_poufs' => 'Диваны и пуфы для холла',
         'armchairs_chairs' => 'Кресла и стулья для холла',
+        'mall' => [
+            'title' => 'Мебель для ТРЦ',
+            'sofas_poufs' =>  'Диваны и пуфы для холла',
+            'armchairs_chairs' => 'Кресла и стулья для холла',
+            'food_court_tables' => 'Столы для фудкорта',
+            'food_court_chairs' => 'Стулья для фудкорта',
+        ],
     ],
     'directories' => [
         'restaurant_caffe' => 'Рестораны и кафе',

@@ -1,3 +1,75 @@
+const locale = document.cookie.split('; ').find(row => row.startsWith('locale=')).split('=')[1];
+
+const translations = {
+    ru: {
+        text_us: "Написать нам",
+        write_wa: "Написать WhatsApp",
+        write_tg: "Написать Telegram",
+        create_order: "Оформить заказ на сайте",
+        catalog: {
+            title: "Каталог",
+            cw: 'Коворкинг пространства',
+            gc: 'Гейминг клубы',
+            bc: 'Оффисы',
+            hotel: 'Гостиничный бизнес',
+            mall: 'ТРЦ',
+            restaurant: 'Рестораны и кафе',
+        },
+        bid: {
+            create: 'Оформить заказ',
+            success: 'Заявка успешно отправлена!',
+            success_text: 'Вам ответят в течении дня'
+        },
+        links: {
+            about_us: 'О нас',
+            show_room: 'Шоурумы',
+        },
+        furniture: {
+            mall: {
+                title: 'Для ТРЦ',
+                sofas_poufs: 'Диваны и пуфы для холла',
+                armchairs_chairs: 'Кресла и стулья для холла',
+                food_court_tables: 'Столы для фудкорта',
+                food_court_chairs: 'Стулья для фудкорта',
+            },
+        }
+    },
+    kz: {
+        text_us: "Бізге жазыңыз",
+        write_wa: "WhatsApp жазу",
+        write_tg: "Telegram жазу",
+        create_order: "Веб-сайтта тапсырыс беру",
+        catalog: {
+            title: "Каталог",
+            cw: 'Коворкинг кеңістіктері',
+            gc: 'Ойын клубтары',
+            bc: 'Оффистер',
+            hotel: 'Қонақ үй бизнесі',
+            mall: 'Сауда орталығына арналған',
+            restaurant: 'Мейрамханалар мен кафелер',
+        },
+        bid: {
+            create: 'Тапсырысты рәсімдеу',
+            success: 'Өтінім сәтті қабылданды!',
+            success_text: 'Біз сізге күні бойы жауап береміз'
+        },
+        links: {
+            about_us: 'Біз туралы',
+            show_room: 'Шоурумдар',
+        },
+        furniture: {
+            mall: {
+                title: 'Сауда орталықтарына арналған жиһаз',
+                sofas_poufs: 'Холлға арналған дивандар мен пуфтар',
+                armchairs_chairs: 'Холлға арналған креслолар мен демалыс орындықтары',
+                food_court_tables: 'Фудкортқа арналған үстелдер',
+                food_court_chairs: 'Фудкорт қа арналған орындықтар',
+            }
+        }
+    }
+}
+
+
 function changeImage(imageNumber) {
     const imageElement = document.querySelector(".directions-image");
 
@@ -60,16 +132,16 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "trc": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/mall">
-          Диваны и пуфы для холла
+          ${translations[locale].furniture.mall.sofas_poufs}
         </a>
         <a class="modal-catalog-product" href="/mall">
-          Кресла и стулья для холла
+          ${translations[locale].furniture.mall.armchairs_chairs}
         </a>
         <a class="modal-catalog-product" href="/mall">
-          Столы для фудкорта
+          ${translations[locale].furniture.mall.food_court_tables}
         </a>
         <a class="modal-catalog-product" href="/mall">
-          Стулья для фудкорта
+          ${translations[locale].furniture.mall.food_court_chairs}
         </a>
       `;
 
@@ -163,49 +235,6 @@ function fillCatalogProducts(productType, isMainPage = false) {
 }
 
 function openModal(type, isMainPage) {
-    const locale = document.cookie.split('; ').find(row => row.startsWith('locale=')).split('=')[1];
-
-    const translations = {
-        ru: {
-            text_us: "Написать нам",
-            write_wa: "Написать WhatsApp",
-            write_tg: "Написать Telegram",
-            create_order: "Оформить заказ на сайте",
-            catalog: {
-                title: "Каталог",
-                cw: 'Коворкинг пространства',
-                gc: 'Гейминг клубы',
-                bc: 'Оффисы',
-                hotel: 'Гостиничный бизнес',
-                mall: 'ТРЦ',
-                restaurant: 'Рестораны и кафе',
-            },
-            bid: {
-                success: 'Заявка успешно отправлена!',
-                success_text: 'Вам ответят в течении дня'
-            }
-        },
-        kz: {
-            text_us: "Бізге жазыңыз",
-            write_wa: "WhatsApp жазу",
-            write_tg: "Telegram жазу",
-            create_order: "Веб-сайтта тапсырыс беру",
-            catalog: {
-                title: "Каталог",
-                cw: 'Коворкинг кеңістіктері',
-                gc: 'Ойын клубтары',
-                bc: 'Оффистер',
-                hotel: 'Қонақ үй бизнесі',
-                mall: 'Сауда орталығына арналған',
-                restaurant: 'Мейрамханалар мен кафелер',
-            },
-            bid: {
-                success: 'Өтінім сәтті қабылданды!',
-                success_text: 'Біз сізге күні бойы жауап береміз'
-            }
-        }
-    }
-
     const modalActive = document.querySelector(".modalActive");
     const modalWindow = document.querySelector(".modalWindow");
     const modalBackground = document.querySelector(".modalBackground");
@@ -406,8 +435,6 @@ function onShowSideBar() {
 }
 
 function fillSidebarMenuContent(isMainPage) {
-    const locale = document.cookie.split('; ').find(row => row.startsWith('locale=')).split('=')[1];
-
     const sidebar = document.querySelector(".sidebar");
 
     const imagesPath = isMainPage ? "./img" : "../img";
@@ -473,14 +500,14 @@ function fillSidebarMenuContent(isMainPage) {
       <div class="menu-main-menu-container">
         <ul id="menu-main-menu">
           <li>
-            <a onclick="openSidebarCatalog(${isMainPage})">Каталог</a>
+            <a onclick="openSidebarCatalog(${isMainPage})">${translations[locale].catalog.title}</a>
           </li>
-          <li><a href="https://innovesta.kz/#why-us" onclick="onShowSideBar()">О нас</a></li>
-          <li><a href="https://innovesta.kz/#showroom" onclick="onShowSideBar()">Шоурумы</a></li>
+          <li><a href="https://innovesta.kz/#why-us" onclick="onShowSideBar()">${translations[locale].links.about_us}</a></li>
+          <li><a href="https://innovesta.kz/#showroom" onclick="onShowSideBar()">${translations[locale].links.show_room}</a></li>
         </ul>
 
         <a class="order bottom-order" onclick="openModal('chat', ${isMainPage})">
-          Оформить заказ
+          ${translations[locale].bid.create}
           <img src="${imagesPath}/icons/orderIcon.svg" alt="" />
         </a>
       </div>
@@ -616,13 +643,13 @@ function openSidebarCatalog(isMainPage = false) {
 
           <ul id="menu-main-menu">
             <li class="menu-parent-item">
-              <a><img class="catalog-modal-img" src="${imagesPath}/catalogModal1.png" alt="">Для ТРЦ<i></i></a>
+              <a><img class="catalog-modal-img" src="${imagesPath}/catalogModal1.png" alt="">${translations[locale].furniture.mall.title}<i></i></a>
 
               <ul class="sub-menu">
-                <li><a href="/mall#tab1">Диваны и пуфы для холла</a></li>
-                <li><a href="/mall#tab2">Кресла и стулья для холла</a></li>
-                <li><a href="/mall#tab3">Столы для фудкорта</a></li>
-                <li><a href="/mall#tab4">Стулья для фудкорта</a></li>
+                <li><a href="/mall#tab1">${translations[locale].furniture.mall.sofas_poufs}</a></li>
+                <li><a href="/mall#tab2">${translations[locale].furniture.mall.armchairs_chairs}</a></li>
+                <li><a href="/mall#tab3">${translations[locale].furniture.mall.food_court_tables}</a></li>
+                <li><a href="/mall#tab4">${translations[locale].furniture.mall.food_court_chairs}</a></li>
               </ul>
             </li>
 
