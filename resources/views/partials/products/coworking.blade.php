@@ -1,13 +1,13 @@
 @extends('main')
 
-@section('title', 'Coworking пространсва')
+@section('title', trans('messages.furniture.cw.title'))
 
 @section('content')
     <div class="container">
         <main class="application-main">
             <div class="wrapper content-top">
                 <div class="content-top-info content-producs">
-                    <h1 class="subtitle">Сoworking пространсва</h1>
+                    <h1 class="subtitle">{{ __('messages.furniture.cw.title') }}</h1>
                 </div>
 
                 <div class="content-top-image content-producs">
@@ -21,8 +21,8 @@
                 </div>
 
                 <ul class="breadcrumb">
-                    <li><a href="{{ url('/') }}">Главная</a></li>
-                    <li>Сoworking пространсва</li>
+                    <li><a href="{{ url('/') }}">{{ __('messages.breadcrumbs.main') }}</a></li>
+                    <li>{{ __('messages.breadcrumbs.cw') }}</li>
                 </ul>
             </div>
 
@@ -32,16 +32,16 @@
                         class="tablink active tab1"
                         onclick="openTab(event, 'tab1')"
                     >
-                        Кресла
+                        {{ __('messages.furniture.cw.chairs') }}
                     </button>
                     <button class="tablink tab2" onclick="openTab(event, 'tab2')">
-                        Столы
+                        {{ __('messages.furniture.cw.tables') }}
                     </button>
                     <button class="tablink tab3" onclick="openTab(event, 'tab3')">
-                        Офисные станции (капсулы)
+                        {{ __('messages.furniture.cw.capsules') }}
                     </button>
                     <button class="tablink tab4" onclick="openTab(event, 'tab4')">
-                        Мебель для тренинг румов
+                        {{ __('messages.furniture.cw.training_room') }}
                     </button>
                 </div>
 
@@ -66,7 +66,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -76,12 +76,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link" disable>
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -117,12 +117,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon') }}" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link">
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon') }}" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -158,12 +158,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link">
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -201,12 +201,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link">
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -244,12 +244,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link">
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -277,7 +277,7 @@
                                     src="{{ asset('img/icons/downloadIcon.svg') }}"
                                     alt="download icon"
                                 />
-                                <span>Скачать</span>
+                                <span>{{ __('messages.btn.download') }}</span>
                             </a>
 
                             <div class="half-width">
@@ -287,12 +287,12 @@
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>Просмотр</span>
+                                    <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
                                 <a class="product-link video-link">
                                     <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>Видео</span>
+                                    <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>

@@ -32,6 +32,30 @@ const translations = {
                 food_court_tables: 'Столы для фудкорта',
                 food_court_chairs: 'Стулья для фудкорта',
             },
+            cw: {
+                title: 'Коворкинг пространства',
+                chairs: 'Кресла',
+                tables: 'Столы',
+                capsules: 'Офисные станции (капсулы)',
+                training_room: 'Мебель для тренинг румов'
+            },
+            gc: {
+                title: 'Гейминг клубы',
+            },
+            offices: {
+                title: 'Оффисы',
+                staff: 'Мебель для персонала',
+                boss: 'Кабинет руководителя',
+                lounge: 'Мебель для приемной и лаунж-зон',
+                conference_hall: 'Мебель для конференц-залов',
+                waiting_room: 'Скамьи для ожидания',
+            },
+            hotel: {
+                title: 'Гостиничный бизнес',
+            },
+            restaurant: {
+                title: 'Рестораны и кафе',
+            }
         }
     },
     kz: {
@@ -57,6 +81,9 @@ const translations = {
             about_us: 'Біз туралы',
             show_room: 'Шоурумдар',
         },
+        breadcrumbs: {
+            main: 'Басты бет',
+        },
         furniture: {
             mall: {
                 title: 'Сауда орталықтарына арналған жиһаз',
@@ -64,7 +91,31 @@ const translations = {
                 armchairs_chairs: 'Холлға арналған креслолар мен демалыс орындықтары',
                 food_court_tables: 'Фудкортқа арналған үстелдер',
                 food_court_chairs: 'Фудкорт қа арналған орындықтар',
-            }
+            },
+            offices: {
+                title: 'Оффистер',
+                staff: 'Қызметкерлерге арналған жиһаз',
+                boss: 'Басшы кабинеті',
+                lounge: 'Қабылдау және демалыс бөлмелеріне арналған жиһаз',
+                conference_hall: 'Конференц-залдарға арналған жиһаз',
+                waiting_room: 'Күту аймағына арналған орындықтар',
+            },
+            cw: {
+                title: 'Коворкинг кеңістіктері',
+                chairs: 'Креслолар',
+                tables: 'Үстелдер',
+                capsules: 'Кеңсе станциялары (капсулалар)',
+                training_room: 'Тренинг бөлмелеріне арналған жиһаз'
+            },
+            gc: {
+                title: 'Ойын клубтары',
+            },
+            hotel: {
+                title: 'Қонақ үй бизнесі',
+            },
+            restaurant: {
+                title: 'Мейрамханалар мен кафелер',
+            },
         }
     }
 }
@@ -195,16 +246,16 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "cw": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/coworking">
-          Кресла
+            ${translations[locale].furniture.cw.chairs}
         </a>
         <a class="modal-catalog-product" href="/coworking">
-          Столы
+            ${translations[locale].furniture.cw.tables}
         </a>
         <a class="modal-catalog-product" href="/coworking">
-          Офисные станции (капсулы)
+            ${translations[locale].furniture.cw.capsules}
         </a>
         <a class="modal-catalog-product" href="/coworking">
-          Мебель для тренинг румов
+           ${translations[locale].furniture.cw.training_room}
         </a>
       `;
 
@@ -213,19 +264,19 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "bc": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/business-center">
-          Мебель для персонала
+            ${translations[locale].furniture.offices.staff}
         </a>
         <a class="modal-catalog-product" href="/business-center">
-          Кабинет руководителя
+            ${translations[locale].furniture.offices.boss}
         </a>
         <a class="modal-catalog-product" href="/business-center">
-          Мебель для приемной и лаунж-зон
+            ${translations[locale].furniture.offices.lounge}
         </a>
         <a class="modal-catalog-product" href="/business-center">
-          Мебель для конференц-залов
+            ${translations[locale].furniture.offices.conference_hall}
         </a>
         <a class="modal-catalog-product" href="/business-center">
-          Скамьи для ожидания
+            ${translations[locale].furniture.offices.waiting_room}
         </a>
       `;
 
@@ -654,44 +705,51 @@ function openSidebarCatalog(isMainPage = false) {
             </li>
 
             <li class="menu-parent-item">
-              <a><img class="catalog-modal-img" src="${imagesPath}/catalogModal2.png" alt="">Бизнес центры<i></i></a>
+              <a><img class="catalog-modal-img" src="${imagesPath}/catalogModal2.png" alt="">
+                ${translations[locale].furniture.offices.title}<i></i>
+            </a>
 
               <ul class="sub-menu">
-                <li><a href="/business-center#tab1">Мебель для персонала</a></li>
-                <li><a href="/business-center#tab2">Кабинет руководителя</a></li>
-                <li><a href="/business-center#tab3">Мебель для приемной и лаунж-зон</a></li>
-                <li><a href="/business-center#tab4">Мебель для конференц-залов</a></li>
-                <li><a href="/business-center#tab5">Скамьи для ожидания</a></li>
+                <li><a href="/business-center#tab1">${translations[locale].furniture.offices.staff}</a></li>
+                <li><a href="/business-center#tab2">${translations[locale].furniture.offices.boss}</a></li>
+                <li><a href="/business-center#tab3">${translations[locale].furniture.offices.lounge}</a></li>
+                <li><a href="/business-center#tab4">${translations[locale].furniture.offices.conference_hall}</a></li>
+                <li><a href="/business-center#tab5">${translations[locale].furniture.offices.waiting_room}</a></li>
               </ul>
             </li>
 
             <li>
               <a href="/hotel">
               <img class="catalog-modal-img" src="${imagesPath}/catalogModal3.png" alt="">
-                Гостиничный бизнес
+                ${translations[locale].furniture.hotel.title}
               </a>
             </li>
 
             <li>
               <a href="/restaurant">
               <img class="catalog-modal-img" src="${imagesPath}/catalogModal4.png" alt="">
-                Рестораны и кафе
+                ${translations[locale].furniture.restaurant.title}
               </a>
             </li>
 
             <li class="menu-parent-item">
-              <a><img class="catalog-modal-img" src="${imagesPath}/catalogModal5.png" alt="">Coworking пространства<i></i></a>
+              <a>
+                <img class="catalog-modal-img" src="${imagesPath}/catalogModal5.png" alt="">
+                ${translations[locale].furniture.cw.title}<i></i>
+              </a>
 
               <ul class="sub-menu">
-                <li><a href="/coworking#tab1">Кресла</a></li>
-                <li><a href="/coworking#tab2">Столы</a></li>
-                <li><a href="/coworking#tab3">Офисные-станции (капсулы)</a></li>
-                <li><a href="/coworking#tab4">Мебель для тренинг румов</a></li>
+                <li><a href="/coworking#tab1">${translations[locale].furniture.cw.chairs}</a></li>
+                <li><a href="/coworking#tab2">${translations[locale].furniture.cw.tables}</a></li>
+                <li><a href="/coworking#tab3">${translations[locale].furniture.cw.capsules}</a></li>
+                <li><a href="/coworking#tab4">${translations[locale].furniture.cw.training_room}</a></li>
               </ul>
             </li>
 
             <li>
-              <a href="/gaming-club"><img class="catalog-modal-img" src="${imagesPath}/catalogModal6.png" alt="">Gaming клубы</a>
+              <a href="/gaming-club"><img class="catalog-modal-img" src="${imagesPath}/catalogModal6.png" alt="">
+                ${translations[locale].furniture.gc.title}
+              </a>
             </li>
           </li>
           </ul>
