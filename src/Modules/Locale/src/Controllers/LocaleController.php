@@ -15,7 +15,6 @@ final class LocaleController extends AbstractController
     {
         $locale = $request->get('locale');
 
-        session(['locale' => $locale]);
         Cookie::queue(Cookie::make(
             name: 'locale',
             value: $locale,

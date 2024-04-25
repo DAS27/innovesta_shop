@@ -78,10 +78,10 @@
                 <form action="{{ route('locale.change') }}" method="POST">
                     @csrf
                     <select name="locale" class="language" onchange="this.form.submit()">
-                        <option value="kz" {{ session('locale', 'kz') === 'kz' ? 'selected' : '' }}>
+                        <option value="kz" {{ Cookie::get('locale') === 'kz' ? 'selected' : '' }}>
                             KZ
                         </option>
-                        <option value="ru" {{ session('locale', 'ru') === 'ru' ? 'selected' : '' }}>
+                        <option value="ru" {{ Cookie::get('locale') === 'ru' ? 'selected' : '' }}>
                             RU
                         </option>
                     </select>

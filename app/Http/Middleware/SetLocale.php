@@ -16,17 +16,19 @@ final class SetLocale
      */
     public function handle($request, Closure $next)
     {
-        if (session()->has('locale')) {
-            app()->setLocale(session('locale'));
+        if (Cookie::has('locale')) {
+            app()->setLocale(Cookie::get('locale'));
+        } else {
+            app()->setLocale(config('app.locale'));
+
+            Cookie::queue(Cookie::make(
+                name: 'locale',
+                value: config('app.locale'),
+                minutes: 10080,
+                httpOnly: false
+            ));
         }
 
-        app()->setLocale(config('app.locale'));
-        Cookie::queue(Cookie::make(
-            name: 'locale',
-            value: config('app.locale'),
-            minutes: 10080,
-            httpOnly: false
-        ));
 
         return $next($request);
     }
