@@ -79,10 +79,10 @@
                     @csrf
                     <select name="locale" class="language" onchange="this.form.submit()">
                         <option value="kz" {{ session('locale', 'kz') === 'kz' ? 'selected' : '' }}>
-                            kz
+                            KZ
                         </option>
                         <option value="ru" {{ session('locale', 'ru') === 'ru' ? 'selected' : '' }}>
-                            ru
+                            RU
                         </option>
                     </select>
                 </form>

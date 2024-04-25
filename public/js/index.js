@@ -1,64 +1,64 @@
 function changeImage(imageNumber) {
-  const imageElement = document.querySelector(".directions-image");
+    const imageElement = document.querySelector(".directions-image");
 
-  imageElement.src = `./img/directionImg${imageNumber}.png`;
+    imageElement.src = `./img/directionImg${imageNumber}.png`;
 }
 
 function openTab(evt, tabName) {
-  const tabcontent = document.querySelectorAll(".products-list");
-  for (let i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+    const tabcontent = document.querySelectorAll(".products-list");
+    for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
 
-  const tablinks = document.querySelectorAll(".tablink");
+    const tablinks = document.querySelectorAll(".tablink");
 
-  for (let i = 0; i < tablinks.length; i++) {
-    tablinks[i].classList.remove("active");
-  }
+    for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
 
-  document.getElementById(tabName).style.display = "flex";
+    document.getElementById(tabName).style.display = "flex";
 
-  evt.currentTarget.classList.add("active");
+    evt.currentTarget.classList.add("active");
 }
 
 function bodyMargin() {
-  const windowInnerWidth = document.documentElement.clientWidth;
-  const bodyElementHTML = document.getElementsByTagName("body")[0];
-  const scrollbarWidth =
-    parseInt(window.innerWidth) - parseInt(windowInnerWidth);
+    const windowInnerWidth = document.documentElement.clientWidth;
+    const bodyElementHTML = document.getElementsByTagName("body")[0];
+    const scrollbarWidth =
+        parseInt(window.innerWidth) - parseInt(windowInnerWidth);
 
-  bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
+    bodyElementHTML.style.marginRight = "-" + scrollbarWidth + "px";
 }
 
 function onModalClose() {
-  const windowInnerWidth = document.documentElement.clientWidth;
-  const modalBackground = document.querySelector(".modalBackground");
-  modalBackground.style.display = "none";
+    const windowInnerWidth = document.documentElement.clientWidth;
+    const modalBackground = document.querySelector(".modalBackground");
+    modalBackground.style.display = "none";
 
-  if (windowInnerWidth >= 1366) {
-    bodyMargin();
-  }
+    if (windowInnerWidth >= 1366) {
+        bodyMargin();
+    }
 }
 
 function onModalBackgroundClick(event) {
-  const windowInnerWidth = document.documentElement.clientWidth;
-  const modalBackground = document.querySelector(".modalBackground");
+    const windowInnerWidth = document.documentElement.clientWidth;
+    const modalBackground = document.querySelector(".modalBackground");
 
-  if (event.target === modalBackground) {
-    modalBackground.style.display = "none";
-    if (windowInnerWidth >= 1366) {
-      bodyMargin();
+    if (event.target === modalBackground) {
+        modalBackground.style.display = "none";
+        if (windowInnerWidth >= 1366) {
+            bodyMargin();
+        }
     }
-  }
 }
 
 function fillCatalogProducts(productType, isMainPage = false) {
-  const productsList = document.querySelector(".catalog-products");
-  const pagesPath = isMainPage ? "./pages" : ".";
+    const productsList = document.querySelector(".catalog-products");
+    const pagesPath = isMainPage ? "./pages" : ".";
 
-  switch (productType) {
-    case "trc": {
-      productsList.innerHTML = `
+    switch (productType) {
+        case "trc": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/mall">
           Диваны и пуфы для холла
         </a>
@@ -73,10 +73,10 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
-    }
-    case "rc": {
-      productsList.innerHTML = `
+            break;
+        }
+        case "rc": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/restaurant">
           Комплект для переговорных
         </a>
@@ -88,10 +88,10 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
-    }
-    case "gc": {
-      productsList.innerHTML = `
+            break;
+        }
+        case "gc": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/gaming-club">
           Комплект для переговорных
         </a>
@@ -103,10 +103,10 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
-    }
-    case "gb": {
-      productsList.innerHTML = `
+            break;
+        }
+        case "gb": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/hotel">
           Комплект для переговорных
         </a>
@@ -118,10 +118,10 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
-    }
-    case "cw": {
-      productsList.innerHTML = `
+            break;
+        }
+        case "cw": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/coworking">
           Кресла
         </a>
@@ -136,10 +136,10 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
-    }
-    case "bc": {
-      productsList.innerHTML = `
+            break;
+        }
+        case "bc": {
+            productsList.innerHTML = `
         <a class="modal-catalog-product" href="/business-center">
           Мебель для персонала
         </a>
@@ -157,85 +157,128 @@ function fillCatalogProducts(productType, isMainPage = false) {
         </a>
       `;
 
-      break;
+            break;
+        }
     }
-  }
 }
 
 function openModal(type, isMainPage) {
-  const modalActive = document.querySelector(".modalActive");
-  const modalWindow = document.querySelector(".modalWindow");
-  const modalBackground = document.querySelector(".modalBackground");
-  const windowInnerWidth = document.documentElement.clientWidth;
+    const locale = document.cookie.split('; ').find(row => row.startsWith('locale=')).split('=')[1];
 
-  const sidebar = document.querySelector(".sidebar");
-  const hiddenOverley = document.querySelector(".hidden-overley");
+    const translations = {
+        ru: {
+            text_us: "Написать нам",
+            write_wa: "Написать WhatsApp",
+            write_tg: "Написать Telegram",
+            create_order: "Оформить заказ на сайте",
+            catalog: {
+                title: "Каталог",
+                cw: 'Коворкинг пространства',
+                gc: 'Гейминг клубы',
+                bc: 'Оффисы',
+                hotel: 'Гостиничный бизнес',
+                mall: 'ТРЦ',
+                restaurant: 'Рестораны и кафе',
+            },
+            bid: {
+                success: 'Заявка успешно отправлена!',
+                success_text: 'Вам ответят в течении дня'
+            }
+        },
+        kz: {
+            text_us: "Бізге жазыңыз",
+            write_wa: "WhatsApp жазу",
+            write_tg: "Telegram жазу",
+            create_order: "Веб-сайтта тапсырыс беру",
+            catalog: {
+                title: "Каталог",
+                cw: 'Коворкинг кеңістіктері',
+                gc: 'Ойын клубтары',
+                bc: 'Оффистер',
+                hotel: 'Қонақ үй бизнесі',
+                mall: 'Сауда орталығына арналған',
+                restaurant: 'Мейрамханалар мен кафелер',
+            },
+            bid: {
+                success: 'Өтінім сәтті қабылданды!',
+                success_text: 'Біз сізге күні бойы жауап береміз'
+            }
+        }
+    }
 
-  if (
-    sidebar.classList.contains("show") ||
-    hiddenOverley.classList.contains("show")
-  ) {
-    sidebar.classList.toggle("show");
-    hiddenOverley.classList.toggle("show");
-    document.body.classList.toggle("sidebar-opened");
-  }
+    const modalActive = document.querySelector(".modalActive");
+    const modalWindow = document.querySelector(".modalWindow");
+    const modalBackground = document.querySelector(".modalBackground");
+    const windowInnerWidth = document.documentElement.clientWidth;
 
-  const imagesPath = isMainPage ? "./img" : "../img";
+    const sidebar = document.querySelector(".sidebar");
+    const hiddenOverley = document.querySelector(".hidden-overley");
 
-  modalWindow.innerHTML = "";
+    if (
+        sidebar.classList.contains("show") ||
+        hiddenOverley.classList.contains("show")
+    ) {
+        sidebar.classList.toggle("show");
+        hiddenOverley.classList.toggle("show");
+        document.body.classList.toggle("sidebar-opened");
+    }
 
-  bodyMargin();
+    const imagesPath = isMainPage ? "./img" : "../img";
 
-  modalBackground.style.display = "block";
+    modalWindow.innerHTML = "";
 
-  if (windowInnerWidth >= 1366) {
     bodyMargin();
-  }
 
-  switch (type) {
-    case "chat": {
-      if (windowInnerWidth <= 400) {
-        modalActive.style.width = "320px";
-        modalActive.style.height = "302px";
-      } else {
-        modalActive.style.width = "406px";
-        modalActive.style.height = "302px";
-      }
+    modalBackground.style.display = "block";
 
-      modalWindow.innerHTML = `
-          <h3 class="modal-chat-title">Написать нам</h3>
+    if (windowInnerWidth >= 1366) {
+        bodyMargin();
+    }
+
+    switch (type) {
+        case "chat": {
+            if (windowInnerWidth <= 400) {
+                modalActive.style.width = "320px";
+                modalActive.style.height = "302px";
+            } else {
+                modalActive.style.width = "406px";
+                modalActive.style.height = "302px";
+            }
+
+            modalWindow.innerHTML = `
+          <h3 class="modal-chat-title">${translations[locale].text_us}</h3>
 
           <div class="modal-chats">
             <a class="modal-chat-block" href="https://wa.me/77019997980?text=">
               <img src="${imagesPath}/icons/wsModalIcon.svg" alt="whatsapp icon" />
-              <span class="modal-chat-text">Написать WhatsApp</span>
+              <span class="modal-chat-text">${translations[locale].write_wa}</span>
             </a>
             <a class="modal-chat-block" href="https://t.me/ilyasmenace">
               <img src="${imagesPath}/icons/tgModalIcon.svg" alt="telegram icon" />
-              <span class="modal-chat-text">Написать Telegram</span>
+              <span class="modal-chat-text">${translations[locale].write_tg}</span>
             </a>
             <a class="modal-chat-block" href="/bid">
               <img src="${imagesPath}/icons/chatModalIcon.svg" alt="chat icon" />
-              <span class="modal-chat-text last">Оформить заказ на сайте</span>
+              <span class="modal-chat-text last">${translations[locale].create_order}</span>
             </a>
           </div>`;
 
-      break;
-    }
-    case "catalog": {
-      if (windowInnerWidth <= 440) {
-        onShowSideBar();
-        openSidebarCatalog(isMainPage);
-        modalBackground.style.display = "none";
-        break;
-      }
+            break;
+        }
+        case "catalog": {
+            if (windowInnerWidth <= 440) {
+                onShowSideBar();
+                openSidebarCatalog(isMainPage);
+                modalBackground.style.display = "none";
+                break;
+            }
 
-      modalActive.style.width = "768px";
-      modalActive.style.height = "472px";
+            modalActive.style.width = "768px";
+            modalActive.style.height = "472px";
 
-      modalWindow.innerHTML = `
+            modalWindow.innerHTML = `
       <div class="modal-catalog-block">
-      <h3 class="modal-catalog-title">Каталог</h3>
+      <h3 class="modal-catalog-title">${translations[locale].catalog.title}</h3>
 
       <div class="modal-catalog-content">
         <div class="catalog-types">
@@ -245,7 +288,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal1.png"
               alt=""
             />
-            <span>Для ТРЦ</span>
+            <span>${translations[locale].catalog.mall}</span>
           </a>
           <a class="catalog-type" href="/business-center" onmouseover="fillCatalogProducts('bc', ${isMainPage})">
             <img
@@ -253,7 +296,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal2.png"
               alt=""
             />
-            <span>Бизнес центры</span>
+            <span>${translations[locale].catalog.bc}</span>
           </a>
           <a class="catalog-type" href="/hotel" onmouseover="fillCatalogProducts('gb', ${isMainPage})">
             <img
@@ -261,7 +304,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal3.png"
               alt=""
             />
-            <span>Гостиничный бизнес</span>
+            <span>${translations[locale].catalog.hotel}</span>
           </a>
           <a class="catalog-type" href="/restaurant" onmouseover="fillCatalogProducts('rc', ${isMainPage})">
             <img
@@ -269,7 +312,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal4.png"
               alt=""
             />
-            <span>Рестораны и кафе</span>
+            <span>${translations[locale].catalog.restaurant}</span>
           </a>
           <a class="catalog-type" href="/coworking" onmouseover="fillCatalogProducts('cw', ${isMainPage})">
             <img
@@ -277,7 +320,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal5.png"
               alt=""
             />
-            <span>Coworking пространства</span>
+            <span>${translations[locale].catalog.cw}</span>
           </a>
           <a class="catalog-type" href="/gaming-club" onmouseover="fillCatalogProducts('gc', ${isMainPage})">
             <img
@@ -285,7 +328,7 @@ function openModal(type, isMainPage) {
               src="${imagesPath}/catalogModal6.png"
               alt=""
             />
-            <span>Gaming клубы</span>
+            <span>${translations[locale].catalog.gc}</span>
           </a>
         </div>
 
@@ -295,14 +338,14 @@ function openModal(type, isMainPage) {
     </div>
       `;
 
-      break;
-    }
+            break;
+        }
 
-    case "application": {
-      modalActive.style.width = "406px";
-      modalActive.style.height = "264px";
+        case "application": {
+            modalActive.style.width = "406px";
+            modalActive.style.height = "264px";
 
-      modalWindow.innerHTML = `
+            modalWindow.innerHTML = `
         <div class="app-modal-success-block">
           <img
             class="app-modal-img"
@@ -310,8 +353,8 @@ function openModal(type, isMainPage) {
             alt=""
           />
 
-          <p class="app-modal-title">Заявка успешно отправлена!</p>
-          <p class="app-modal-text">Вам ответят в течение дня</p>
+          <p class="app-modal-title">${translations[locale].bid.success}</p>
+          <p class="app-modal-text">${translations[locale].bid.success_text}</p>
 
           <button
             class="app-modal-button black-button"
@@ -322,52 +365,54 @@ function openModal(type, isMainPage) {
         </div>
       `;
 
-      break;
-    }
+            break;
+        }
 
-    default:
-      console.log("no");
-  }
+        default:
+            console.log("no");
+    }
 }
 
 function onSearchFocus() {
-  const searchVariants = document.querySelectorAll(".search-variants");
+    const searchVariants = document.querySelectorAll(".search-variants");
 
-  for (let i = 0; i < searchVariants.length; i++) {
-    searchVariants[i].style.display = "block";
-  }
+    for (let i = 0; i < searchVariants.length; i++) {
+        searchVariants[i].style.display = "block";
+    }
 }
 
 function onSearchFocusOut() {
-  const searchVariants = document.querySelectorAll(".search-variants");
+    const searchVariants = document.querySelectorAll(".search-variants");
 
-  for (let i = 0; i < searchVariants.length; i++) {
-    searchVariants[i].style.display = "none";
-  }
+    for (let i = 0; i < searchVariants.length; i++) {
+        searchVariants[i].style.display = "none";
+    }
 }
 
 function onContactsClick() {
-  const contactsPopup = document.querySelectorAll(".contacts-popup");
+    const contactsPopup = document.querySelectorAll(".contacts-popup");
 
-  for (let i = 0; i < contactsPopup.length; i++) {
-    contactsPopup[i].classList.toggle("show-contacts-popup");
-  }
+    for (let i = 0; i < contactsPopup.length; i++) {
+        contactsPopup[i].classList.toggle("show-contacts-popup");
+    }
 }
 
 function onShowSideBar() {
-  const sidebar = document.querySelector(".sidebar");
-  sidebar.classList.toggle("show");
-  document.querySelector(".pushmenu").classList.toggle("open");
-  document.querySelector(".hidden-overley").classList.toggle("show");
-  document.body.classList.toggle("sidebar-opened");
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("show");
+    document.querySelector(".pushmenu").classList.toggle("open");
+    document.querySelector(".hidden-overley").classList.toggle("show");
+    document.body.classList.toggle("sidebar-opened");
 }
 
 function fillSidebarMenuContent(isMainPage) {
-  const sidebar = document.querySelector(".sidebar");
+    const locale = document.cookie.split('; ').find(row => row.startsWith('locale=')).split('=')[1];
 
-  const imagesPath = isMainPage ? "./img" : "../img";
+    const sidebar = document.querySelector(".sidebar");
 
-  sidebar.innerHTML = `
+    const imagesPath = isMainPage ? "./img" : "../img";
+
+    sidebar.innerHTML = `
       <div class="d-flex p-2">
         <div class="phone-block phone" onclick="onContactsClick()">
           <img src="${imagesPath}/icons/phoneGreyIcon.svg" alt="phone icon" />
@@ -417,10 +462,10 @@ function fillSidebarMenuContent(isMainPage) {
         </div>
 
         <div class="language-block">
-          <select class="language">
-            <option value="ru">ru</option>
-            <option value="kz">kz</option>
-          </select>
+          <select class="language" id="locale">
+              <option value="kz">KZ</option>
+              <option value="ru">RU</option>
+            </select>
         </div>
 
         <div id="nav-icon3" class="pushmenu opened" onclick="onShowSideBar()"></div>
@@ -464,15 +509,47 @@ function fillSidebarMenuContent(isMainPage) {
             contactsSidebar.classList.toggle("show-contacts-popup");
         }
     });
+
+    const selectElement = document.getElementById('locale');
+    selectElement.value = locale;
+
+    document.getElementById('locale').addEventListener('change', function(event) {
+        const selectedLocale = event.target.value;
+
+        const data = JSON.stringify({
+            locale: selectedLocale
+        });
+
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        fetch("/locale/change-locale", {
+            method: "POST",
+            body: data,
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "X-CSRF-TOKEN": csrfToken,
+            },
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log("Locale changed successfully");
+                    window.location.reload();
+                } else {
+                    throw new Error('Failed to change locale');
+                }
+            })
+            .catch(err => console.error(err));
+    });
 }
 
 function openSidebarSearch(isMainPage = false) {
-  const sidebar = document.querySelector(".sidebar");
-  pushmenuFunction(isMainPage);
+    const sidebar = document.querySelector(".sidebar");
+    pushmenuFunction(isMainPage);
 
-  const imagesPath = isMainPage ? "./img" : "../img";
+    const imagesPath = isMainPage ? "./img" : "../img";
 
-  sidebar.innerHTML = `
+    sidebar.innerHTML = `
       <div class="d-flex p-2">
         <p></p>
         <div id="nav-icon3" class="pushmenu opened" onclick="onShowSideBar()"></div>
@@ -520,12 +597,12 @@ function openSidebarSearch(isMainPage = false) {
 }
 
 function openSidebarCatalog(isMainPage = false) {
-  const sidebar = document.querySelector(".sidebar");
+    const sidebar = document.querySelector(".sidebar");
 
-  const imagesPath = isMainPage ? "./img" : "../img";
-  const pagesPath = isMainPage ? "./pages" : "../partial/products";
+    const imagesPath = isMainPage ? "./img" : "../img";
+    const pagesPath = isMainPage ? "./pages" : "../partial/products";
 
-  sidebar.innerHTML = `
+    sidebar.innerHTML = `
       <div class="d-flex p-2">
         <a class="side-catalog-back" onclick="fillSidebarMenuContent(${isMainPage})">
             <img src="${imagesPath}/icons/goBackIcon.svg" alt="back icon"/>
@@ -595,85 +672,85 @@ function openSidebarCatalog(isMainPage = false) {
       </div>
         `;
 
-  // Получим все родительские элементы в меню
-  const sidebarAccordeon = document.querySelectorAll(
-    ".sidebar .menu-parent-item a:first-child",
-  );
+    // Получим все родительские элементы в меню
+    const sidebarAccordeon = document.querySelectorAll(
+        ".sidebar .menu-parent-item a:first-child",
+    );
 
-  const accordeonFunction = function () {
-    this.parentNode.querySelector("ul").classList.toggle("show");
-    this.querySelector("i").classList.toggle("rotate");
-  };
+    const accordeonFunction = function () {
+        this.parentNode.querySelector("ul").classList.toggle("show");
+        this.querySelector("i").classList.toggle("rotate");
+    };
 
-  // Отслеживаем клики родительских пунктов меню
-  for (i = 0; i < sidebarAccordeon.length; i++) {
-    sidebarAccordeon[i].addEventListener("click", accordeonFunction, false);
-  }
+    // Отслеживаем клики родительских пунктов меню
+    for (i = 0; i < sidebarAccordeon.length; i++) {
+        sidebarAccordeon[i].addEventListener("click", accordeonFunction, false);
+    }
 }
 
 const pushmenuFunction = function (isMainPage = false) {
-  onShowSideBar();
+    onShowSideBar();
 
-  fillSidebarMenuContent(isMainPage);
+    fillSidebarMenuContent(isMainPage);
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // получаем все элементы с классом pushmenu
-  const pushmenu = document.getElementsByClassName("pushmenu");
+    // получаем все элементы с классом pushmenu
+    const pushmenu = document.getElementsByClassName("pushmenu");
 
-  // получаем элемент с классом hidden-overley
-  const hiddenOverley = document.querySelector(".hidden-overley");
+    // получаем элемент с классом hidden-overley
+    const hiddenOverley = document.querySelector(".hidden-overley");
 
-  // отслеживаем клик клика по оверлею
-  hiddenOverley.addEventListener("click", (e) => {
-    e.currentTarget.classList.toggle("show");
-    document.querySelector(".sidebar").classList.toggle("show");
-    document.querySelector("body").classList.toggle("sidebar-opened");
-    for (i = 0; i < pushmenu.length; i++) {
-      pushmenu[i].classList.toggle("open");
+    // отслеживаем клик клика по оверлею
+    hiddenOverley.addEventListener("click", (e) => {
+        e.currentTarget.classList.toggle("show");
+        document.querySelector(".sidebar").classList.toggle("show");
+        document.querySelector("body").classList.toggle("sidebar-opened");
+        for (i = 0; i < pushmenu.length; i++) {
+            pushmenu[i].classList.toggle("open");
+        }
+    });
+
+    if (document.documentElement.clientWidth < 440) {
+        const showroomsText = document.querySelectorAll(".text.showroom-text br");
+        for (let i = 0; i < showroomsText.length; i++) {
+            showroomsText[i].style.display = "none";
+        }
     }
-  });
-
-  if (document.documentElement.clientWidth < 440) {
-    const showroomsText = document.querySelectorAll(".text.showroom-text br");
-    for (let i = 0; i < showroomsText.length; i++) {
-      showroomsText[i].style.display = "none";
-    }
-  }
 });
 
 document.querySelector("#phone").onkeydown = function (e) {
-  inputphone(e, document.querySelector("#phone"));
+    inputphone(e, document.querySelector("#phone"));
 };
 
 function inputphone(e, phone) {
-  function stop(evt) {
-    evt.preventDefault();
-  }
-
-  const key = e.key;
-  const v = phone.value;
-  const not = key.replace(/([0-9])/, 1);
-
-  if (not == 1 || "Backspace" === not) {
-    if ("Backspace" != not) {
-      if (v.length < 3 || v === "") {
-        phone.value = "+7(";
-      }
-      if (v.length === 6) {
-        phone.value = v + ")";
-      }
-      if (v.length === 10) {
-        phone.value = v + "-";
-      }
-      if (v.length === 13) {
-        phone.value = v + "-";
-      }
-      if (v.length > 15) e.preventDefault();
+    function stop(evt) {
+        evt.preventDefault();
     }
-  } else {
-    stop(e);
-  }
+
+    const key = e.key;
+    const v = phone.value;
+    const not = key.replace(/([0-9])/, 1);
+
+    if (not == 1 || "Backspace" === not) {
+        if ("Backspace" != not) {
+            if (v.length < 3 || v === "") {
+                phone.value = "+7(";
+            }
+            if (v.length === 6) {
+                phone.value = v + ")";
+            }
+            if (v.length === 10) {
+                phone.value = v + "-";
+            }
+            if (v.length === 13) {
+                phone.value = v + "-";
+            }
+            if (v.length > 15) e.preventDefault();
+        }
+    } else {
+        stop(e);
+    }
 }
 
 const form = document.querySelector(".form");
@@ -681,30 +758,30 @@ const form = document.querySelector(".form");
 form.addEventListener("submit", (event) => onFormSubmit(event));
 
 function onFormSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = new FormData(form);
-  const files = document.getElementById('room-scheme').files;
+    const formData = new FormData(form);
+    const files = document.getElementById('room-scheme').files;
 
-  for (let i = 0; i < files.length; i++) {
-    formData.append('files[]', files[i]);
-  }
+    for (let i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
+    }
 
 
-  fetch("/bid", {
-    method: "post",
-    body: formData,
-    headers: {
-      Accept: "application/json",
-      "X-CSRF-TOKEN": document
-        .querySelector('meta[name="csrf-token"]')
-        .getAttribute("content"),
-    },
-  })
-    .then((response) => {
-      if (response.status === 201) {
-        openModal("application");
-      }
+    fetch("/bid", {
+        method: "post",
+        body: formData,
+        headers: {
+            Accept: "application/json",
+            "X-CSRF-TOKEN": document
+                .querySelector('meta[name="csrf-token"]')
+                .getAttribute("content"),
+        },
     })
-    .catch((err) => console.log(err));
+        .then((response) => {
+            if (response.status === 201) {
+                openModal("application");
+            }
+        })
+        .catch((err) => console.log(err));
 }
