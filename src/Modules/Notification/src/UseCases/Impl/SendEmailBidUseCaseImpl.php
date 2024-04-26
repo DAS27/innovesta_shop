@@ -14,7 +14,7 @@ final class SendEmailBidUseCaseImpl implements SendEmailBidUseCase
     public function handle(BidEntity $bidEntity, array $roomSchemePaths): void
     {
         Mail::to(config("notification.base.send_to_email"))
-            ->cc(["info@innovesta.kz", "dkilkeev@gmail.com"])
+            ->cc(["info@innovesta.kz", "dkilkeev@gmail.com", "sultan.a@mpinnovations.kz"])
             ->send(new BidEmail($bidEntity, $roomSchemePaths));
     }
 }
