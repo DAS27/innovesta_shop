@@ -93,6 +93,22 @@ hr {
   cursor: pointer;
 }
 
+.form .input {
+    outline: none;
+}
+
+.form .input:focus {
+    border-color: #000;
+}
+
+.form .input:required:valid {
+    border-color: var(--main-color-grey-light);
+}
+
+.form .input:required:invalid:focus {
+    border: 1px solid red;
+}
+
 @media screen and (max-width: 440px) {
   .title {
     margin-top: 0;
@@ -107,6 +123,7 @@ hr {
     width: 175px;
   }
 }
+
 
 @media screen and (max-width: 376px) {
   .directions-image {

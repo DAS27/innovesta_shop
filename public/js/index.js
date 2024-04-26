@@ -459,41 +459,6 @@ function openModal(type, isMainPage) {
     }
 }
 
-function onSearchFocus() {
-    document.querySelector(".search-variants").style.display = "block";
-}
-
-function onSearchFocusOut() {
-    setTimeout(() => {
-        document.querySelector(".search-variants").style.display = "none";
-    }, 100);
-}
-
-function filterVariants() {
-    const input = document.querySelector('.search-input').value.toLowerCase();
-    const variantsContainer = document.querySelector('.search-variants');
-    const variants = [
-        { name: "Veneer High-end Executive", tip: "Коворкинг пространства", url: "/coworking" },
-        { name: "Veneer Meeting Table", tip: "Коворкинг пространства", url: "/coworking" },
-        { name: "Big Table", tip: "ТРЦ", url: "/mall" }
-    ];
-
-    variantsContainer.innerHTML = '';
-
-    const filtered = variants.filter(v =>
-        v.name.toLowerCase().includes(input) || v.tip.toLowerCase().includes(input)
-    );
-    filtered.forEach(v => {
-        const variantDiv = document.createElement('div');
-        variantDiv.className = 'variant';
-        variantDiv.innerHTML = `
-            <p class="variant-name"><a href="${v.url}">${v.name}</b></a></p>
-            <p class="tip">${v.tip}</p>
-        `;
-        variantsContainer.appendChild(variantDiv);
-    });
-}
-
 function onContactsClick() {
     const contactsPopup = document.querySelectorAll(".contacts-popup");
 
@@ -661,42 +626,19 @@ function openSidebarSearch(isMainPage = false) {
       <div class="search">
         <input
           class="search-input"
+          id="search-input"
           placeholder="По названию или артикулу"
-          onfocus="onSearchFocus()"
-          onfocusout="onSearchFocusOut()"
         />
         <img src="${imagesPath}/icons/searchIcon.svg" alt="" />
 
-        <div class="search-variants">
-          <div class="variant">
-            <p class="variant-name">
-              Veneer High-end Executive
-              <b>Table</b>
-            </p>
-            <p class="tip">Сoworking пространсва</p>
-          </div>
-          <div class="variant">
-            <p class="variant-name">Veneer Meeting <b>Table</b></p>
-            <p class="tip">Сoworking пространсва</p>
-          </div>
-          <div class="variant">
-            <p class="variant-name">Big <b>Table</b></p>
-            <p class="tip">ТРЦ</p>
-          </div>
-          <div class="variant">
-            <p class="variant-name">
-              Veneer High-end Executive
-              <b>Table</b>
-            </p>
-            <p class="tip">Сoworking пространсва</p>
-          </div>
-          <div class="variant">
-            <p class="variant-name">Big <b>Table</b></p>
-            <p class="tip">ТРЦ</p>
-          </div>
-        </div>
+        <div id="search-variants" class="search-variants"></div>
       </div>
       `;
+
+    const searchInput = sidebar.getElementById('search-input');
+    searchInput.onfocus = onSearchFocus;
+    searchInput.onfocusout = onSearchFocusOut;
+    searchInput.oninput = filterVariantsMobile;
 }
 
 function openSidebarCatalog(isMainPage = false) {
@@ -796,6 +738,75 @@ function openSidebarCatalog(isMainPage = false) {
     for (i = 0; i < sidebarAccordeon.length; i++) {
         sidebarAccordeon[i].addEventListener("click", accordeonFunction, false);
     }
+}
+
+function onSearchFocus() {
+    document.querySelector(".search-variants").style.display = "block";
+}
+
+function onSearchFocusOut() {
+    setTimeout(() => {
+        document.querySelector(".search-variants").style.display = "none";
+    }, 100);
+}
+
+const variants = [
+    { name: "Veneer High-end Executive", tip: "Коворкинг пространства", url: "/coworking" },
+    { name: "Veneer Meeting Table", tip: "Коворкинг пространства", url: "/coworking" },
+    { name: "Big Table", tip: "ТРЦ", url: "/mall" }
+];
+
+function filterVariantsMobile() {
+    const input = document.getElementById('search-input').value.toLowerCase();
+    const variantsContainer = document.getElementById('search-variants');
+
+
+    variantsContainer.innerHTML = '';
+
+    const filtered = variants.filter(v =>
+        v.name.toLowerCase().includes(input) || v.tip.toLowerCase().includes(input)
+    );
+    filtered.forEach(v => {
+        const variantDiv = document.createElement('div');
+        variantDiv.className = 'variant';
+        variantDiv.innerHTML = `
+            <p class="variant-name">
+                <b><a href="${v.url}">${v.name}</b></a>
+            </p>
+            <p class="tip">${v.tip}</p>
+        `;
+        variantDiv.onclick = (event) => {
+            event.stopPropagation();
+            window.location.href = v.url;
+        };
+        variantsContainer.appendChild(variantDiv);
+    });
+}
+
+function filterVariantsDesktop() {
+    const input = document.querySelector('.search-input').value.toLowerCase();
+    const variantsContainer = document.querySelector('.search-variants');
+
+    variantsContainer.innerHTML = '';
+
+    const filtered = variants.filter(v =>
+        v.name.toLowerCase().includes(input) || v.tip.toLowerCase().includes(input)
+    );
+    filtered.forEach(v => {
+        const variantDiv = document.createElement('div');
+        variantDiv.className = 'variant';
+        variantDiv.innerHTML = `
+            <p class="variant-name">
+                <b><a href="${v.url}">${v.name}</b></a>
+            </p>
+            <p class="tip">${v.tip}</p>
+        `;
+        variantDiv.onclick = (event) => {
+            event.stopPropagation();
+            window.location.href = v.url;
+        };
+        variantsContainer.appendChild(variantDiv);
+    });
 }
 
 const pushmenuFunction = function (isMainPage = false) {

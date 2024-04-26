@@ -116,6 +116,7 @@
                                 name="phone"
                                 placeholder="+7(___)___-__-__"
                                 required
+                                minlength="16"
                             />
                         </div>
                     </div>

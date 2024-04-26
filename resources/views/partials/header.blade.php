@@ -11,7 +11,7 @@
                     placeholder="По названию или артикулу"
                     onfocus="onSearchFocus()"
                     onfocusout="onSearchFocusOut()"
-                    oninput="filterVariants()"
+                    oninput="filterVariantsDesktop()"
                 />
                 <img src="{{ asset('img/icons/searchIcon.svg') }}" alt="" />
 
