@@ -637,8 +637,8 @@ function openSidebarSearch(isMainPage = false) {
       `;
 
     const searchInput = sidebar.querySelector('#search-input');
-    searchInput.onfocus = onSearchFocus;
-    searchInput.onfocusout = onSearchFocusOut;
+    searchInput.onfocus = onSearchFocusMobile;
+    searchInput.onfocusout = onSearchFocusOutMobile;
     searchInput.oninput = filterVariantsMobile;
 }
 
@@ -809,11 +809,11 @@ function filterVariantsDesktop() {
         variantDiv.className = 'variant';
         variantDiv.innerHTML = `
             <p class="variant-name">
-                <b><a href="${v.url}">${v.name}</b></a>
+                <a href="${v.url}"><b>${v.name}</b></a>
             </p>
             <p class="tip">${v.tip}</p>
         `;
-        variantDiv.onclick = (event) => {
+        variantDiv.onclick = function(event) {
             event.stopPropagation();
             window.location.href = v.url;
         };
