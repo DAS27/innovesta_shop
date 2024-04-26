@@ -52,6 +52,9 @@ const translations = {
             },
             hotel: {
                 title: 'Гостиничный бизнес',
+                meeting_room: 'Комплект для переговорных',
+                adjustable_table_chair: 'Регулируемые столы и стулья',
+                angular_solutions: 'Угловые решения',
             },
             restaurant: {
                 title: 'Рестораны и кафе',
@@ -112,6 +115,9 @@ const translations = {
             },
             hotel: {
                 title: 'Қонақ үй бизнесі',
+                meeting_room: 'Жиналыс бөлмесі жинағы',
+                adjustable_table_chair: 'Реттелетін үстелдер мен орындықтар',
+                angular_solutions: 'Бұрыштық жиһаз',
             },
             restaurant: {
                 title: 'Мейрамханалар мен кафелер',
@@ -201,13 +207,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "rc": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/restaurant">
-          Комплект для переговорных
+          ${translations[locale].furniture.hotel.meeting_room}
         </a>
         <a class="modal-catalog-product" href="/restaurant">
-          Регулируемые столы и стулья
+          ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
         <a class="modal-catalog-product" href="/restaurant">
-          Угловые решения
+          ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
 
@@ -216,13 +222,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "gc": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/gaming-club">
-          Комплект для переговорных
+          ${translations[locale].furniture.hotel.meeting_room}
         </a>
         <a class="modal-catalog-product" href="/gaming-club">
-          Регулируемые столы и стулья
+          ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
         <a class="modal-catalog-product" href="/gaming-club">
-          Угловые решения
+          ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
 
@@ -231,13 +237,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         case "gb": {
             productsList.innerHTML = `
         <a class="modal-catalog-product" href="/hotel">
-          Комплект для переговорных
+          ${translations[locale].furniture.hotel.meeting_room}
         </a>
         <a class="modal-catalog-product" href="/hotel">
-          Регулируемые столы и стулья
+          ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
         <a class="modal-catalog-product" href="/hotel">
-          Угловые решения
+          ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
 

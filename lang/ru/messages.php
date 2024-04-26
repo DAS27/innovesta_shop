@@ -91,7 +91,13 @@ return [
             'lounge' => 'Мебель для приемной и лаунж-зон',
             'conference_hall' => 'Мебель для конференц-залов',
             'waiting_room' => 'Скамьи для ожидания',
-        ]
+        ],
+        'hotel' => [
+            'title' => 'Мебель для гостиничного бизнеса',
+            'meeting_room' => 'Комплект для переговорных',
+            'adjustable_table_chair' => 'Регулируемые столы и стулья',
+            'angular_solutions' => 'Угловые решения',
+        ],
     ],
     'directories' => [
         'restaurant_caffe' => 'Рестораны и кафе',
