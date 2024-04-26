@@ -460,19 +460,38 @@ function openModal(type, isMainPage) {
 }
 
 function onSearchFocus() {
-    const searchVariants = document.querySelectorAll(".search-variants");
-
-    for (let i = 0; i < searchVariants.length; i++) {
-        searchVariants[i].style.display = "block";
-    }
+    document.querySelector(".search-variants").style.display = "block";
 }
 
 function onSearchFocusOut() {
-    const searchVariants = document.querySelectorAll(".search-variants");
+    setTimeout(() => {
+        document.querySelector(".search-variants").style.display = "none";
+    }, 100);
+}
 
-    for (let i = 0; i < searchVariants.length; i++) {
-        searchVariants[i].style.display = "none";
-    }
+function filterVariants() {
+    const input = document.querySelector('.search-input').value.toLowerCase();
+    const variantsContainer = document.querySelector('.search-variants');
+    const variants = [
+        { name: "Veneer High-end Executive", tip: "Коворкинг пространства", url: "/coworking" },
+        { name: "Veneer Meeting Table", tip: "Коворкинг пространства", url: "/coworking" },
+        { name: "Big Table", tip: "ТРЦ", url: "/mall" }
+    ];
+
+    variantsContainer.innerHTML = '';
+
+    const filtered = variants.filter(v =>
+        v.name.toLowerCase().includes(input) || v.tip.toLowerCase().includes(input)
+    );
+    filtered.forEach(v => {
+        const variantDiv = document.createElement('div');
+        variantDiv.className = 'variant';
+        variantDiv.innerHTML = `
+            <p class="variant-name"><a href="${v.url}">${v.name}</b></a></p>
+            <p class="tip">${v.tip}</p>
+        `;
+        variantsContainer.appendChild(variantDiv);
+    });
 }
 
 function onContactsClick() {
@@ -824,7 +843,7 @@ function inputphone(e, phone) {
     const not = key.replace(/([0-9])/, 1);
 
     if (not == 1 || "Backspace" === not) {
-        if ("Backspace" != not) {
+        if ("Backspace" !== not) {
             if (v.length < 3 || v === "") {
                 phone.value = "+7(";
             }

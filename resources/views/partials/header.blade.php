@@ -5,44 +5,18 @@
                 <img class="logo" src="{{ asset('img/icons/appLogo.svg') }}"  alt="innovesta logo"/>
             </a>
 
-{{--            <div class="search">--}}
-{{--                <input--}}
-{{--                    class="search-input"--}}
-{{--                    placeholder="По названию или артикулу"--}}
-{{--                    onfocus="onSearchFocus()"--}}
-{{--                    onfocusout="onSearchFocusOut()"--}}
-{{--                />--}}
-{{--                <img src="{{ asset('img/icons/searchIcon.svg') }}" alt="" />--}}
+            <div class="search">
+                <input
+                    class="search-input"
+                    placeholder="По названию или артикулу"
+                    onfocus="onSearchFocus()"
+                    onfocusout="onSearchFocusOut()"
+                    oninput="filterVariants()"
+                />
+                <img src="{{ asset('img/icons/searchIcon.svg') }}" alt="" />
 
-{{--                <div class="search-variants">--}}
-{{--                    <div class="variant">--}}
-{{--                        <p class="variant-name">--}}
-{{--                            Veneer High-end Executive--}}
-{{--                            <b>Table</b>--}}
-{{--                        </p>--}}
-{{--                        <p class="tip">Сoworking пространсва</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="variant">--}}
-{{--                        <p class="variant-name">Veneer Meeting <b>Table</b></p>--}}
-{{--                        <p class="tip">Сoworking пространсва</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="variant">--}}
-{{--                        <p class="variant-name">Big <b>Table</b></p>--}}
-{{--                        <p class="tip">ТРЦ</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="variant">--}}
-{{--                        <p class="variant-name">--}}
-{{--                            Veneer High-end Executive--}}
-{{--                            <b>Table</b>--}}
-{{--                        </p>--}}
-{{--                        <p class="tip">Сoworking пространсва</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="variant">--}}
-{{--                        <p class="variant-name">Big <b>Table</b></p>--}}
-{{--                        <p class="tip">ТРЦ</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                <div class="search-variants"></div>
+            </div>
         </div>
 
         <div class="navigation">
