@@ -752,12 +752,12 @@ function onSearchFocusOutMobile() {
 }
 
 function onSearchFocusDesktop() {
-    document.querySelector("#search-variants").style.display = "block";
+    document.querySelector(".search-variants").style.display = "block";
 }
 
 function onSearchFocusOutDesktop() {
     setTimeout(() => {
-        document.querySelector("#search-variants").style.display = "none";
+        document.querySelector(".search-variants").style.display = "none";
     }, 100);
 }
 
