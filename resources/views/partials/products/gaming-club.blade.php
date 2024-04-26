@@ -38,7 +38,7 @@
                         {{ __('messages.furniture.hotel.adjustable_table_chair') }}
                     </button>
                     <button class="tablink tab3" onclick="openTab(event, 'tab3')">
-                        {{ __('messages.furniture.hotel.angular_solution') }}
+                        {{ __('messages.furniture.hotel.angular_solutions') }}
                     </button>
                 </div>
 
