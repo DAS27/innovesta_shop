@@ -9,8 +9,8 @@
                 <input
                     class="search-input"
                     placeholder="По названию или артикулу"
-                    onfocus="onSearchFocus()"
-                    onfocusout="onSearchFocusOut()"
+                    onfocus="onSearchFocusDesktop()"
+                    onfocusout="onSearchFocusOutDesktop()"
                     oninput="filterVariantsDesktop()"
                 />
                 <img src="{{ asset('img/icons/searchIcon.svg') }}" alt="" />

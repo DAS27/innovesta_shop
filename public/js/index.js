@@ -631,11 +631,12 @@ function openSidebarSearch(isMainPage = false) {
         />
         <img src="${imagesPath}/icons/searchIcon.svg" alt="" />
 
-        <div id="search-variants" class="search-variants"></div>
+        <div id="search-variants" class="search-variants">
+        </div>
       </div>
       `;
 
-    const searchInput = sidebar.getElementById('search-input');
+    const searchInput = sidebar.querySelector('#search-input');
     searchInput.onfocus = onSearchFocus;
     searchInput.onfocusout = onSearchFocusOut;
     searchInput.oninput = filterVariantsMobile;
@@ -740,13 +741,23 @@ function openSidebarCatalog(isMainPage = false) {
     }
 }
 
-function onSearchFocus() {
-    document.querySelector(".search-variants").style.display = "block";
+function onSearchFocusMobile() {
+    document.querySelector("#search-variants").style.display = "block";
 }
 
-function onSearchFocusOut() {
+function onSearchFocusOutMobile() {
     setTimeout(() => {
-        document.querySelector(".search-variants").style.display = "none";
+        document.querySelector("#search-variants").style.display = "none";
+    }, 100);
+}
+
+function onSearchFocusDesktop() {
+    document.querySelector("#search-variants").style.display = "block";
+}
+
+function onSearchFocusOutDesktop() {
+    setTimeout(() => {
+        document.querySelector("#search-variants").style.display = "none";
     }, 100);
 }
 
@@ -760,25 +771,26 @@ function filterVariantsMobile() {
     const input = document.getElementById('search-input').value.toLowerCase();
     const variantsContainer = document.getElementById('search-variants');
 
-
     variantsContainer.innerHTML = '';
 
     const filtered = variants.filter(v =>
         v.name.toLowerCase().includes(input) || v.tip.toLowerCase().includes(input)
     );
+
     filtered.forEach(v => {
         const variantDiv = document.createElement('div');
         variantDiv.className = 'variant';
         variantDiv.innerHTML = `
             <p class="variant-name">
-                <b><a href="${v.url}">${v.name}</b></a>
+                <a href="${v.url}"><b>${v.name}</b></a>
             </p>
             <p class="tip">${v.tip}</p>
         `;
-        variantDiv.onclick = (event) => {
+        variantDiv.onclick = function(event) {
             event.stopPropagation();
             window.location.href = v.url;
         };
+        console.log(variantDiv)
         variantsContainer.appendChild(variantDiv);
     });
 }
