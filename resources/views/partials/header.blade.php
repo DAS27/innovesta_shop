@@ -8,7 +8,7 @@
             <div class="search">
                 <input
                     class="search-input"
-                    placeholder="По названию или артикулу"
+                    placeholder="Поиск по категории"
                     onfocus="onSearchFocusDesktop()"
                     onfocusout="onSearchFocusOutDesktop()"
                     oninput="filterVariantsDesktop()"

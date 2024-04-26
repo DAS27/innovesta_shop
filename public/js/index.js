@@ -10,7 +10,7 @@ const translations = {
             title: "Каталог",
             cw: 'Коворкинг пространства',
             gc: 'Гейминг клубы',
-            bc: 'Оффисы',
+            bc: 'Офисы',
             hotel: 'Гостиничный бизнес',
             mall: 'ТРЦ',
             restaurant: 'Рестораны и кафе',
@@ -70,7 +70,7 @@ const translations = {
             title: "Каталог",
             cw: 'Коворкинг кеңістіктері',
             gc: 'Ойын клубтары',
-            bc: 'Оффистер',
+            bc: 'Офистер',
             hotel: 'Қонақ үй бизнесі',
             mall: 'Сауда орталығына арналған',
             restaurant: 'Мейрамханалар мен кафелер',
@@ -126,6 +126,27 @@ const translations = {
     }
 }
 
+const variants = [
+    { name: "Диваны и пуфы для холла", tip: "Мебель для ТРЦ", url: "/mall" },
+    { name: "Кресла и стулья для холла", tip: "Мебель для ТРЦ", url: "/mall" },
+    { name: "Столы для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
+    { name: "Стулья для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
+
+    { name: "Кресла", tip: "Коворкинг пространства", url: "/coworking" },
+    { name: "Столы", tip: "Коворкинг пространства", url: "/coworking" },
+    { name: "Офисные станции (капсулы)", tip: "Коворкинг пространства", url: "/coworking" },
+    { name: "Мебель для тренинг румов", tip: "Коворкинг пространства", url: "/coworking" },
+
+    { name: "Мебель для персонала", tip: "Мебель для БЦ", url: "/business-center" },
+    { name: "Кабинет руководителя", tip: "Мебель для БЦ", url: "/business-center" },
+    { name: "Мебель для приемной и лаунж-зон", tip: "Мебель для БЦ", url: "/business-center" },
+    { name: "Мебель для конференц-залов", tip: "Мебель для БЦ", url: "/business-center" },
+    { name: "Скамьи для ожидания", tip: "Мебель для БЦ", url: "/business-center" },
+
+    { name: "Комплект для переговорных", tip: "Мебель для гостиничного бизнеса", url: "/business-center" },
+    { name: "Регулируемые столы и стулья", tip: "Мебель для гостиничного бизнеса", url: "/business-center" },
+    { name: "Угловые решения", tip: "Мебель для гостиничного бизнеса", url: "/business-center" },
+];
 
 function changeImage(imageNumber) {
     const imageElement = document.querySelector(".directions-image");
@@ -627,7 +648,7 @@ function openSidebarSearch(isMainPage = false) {
         <input
           class="search-input"
           id="search-input"
-          placeholder="По названию или артикулу"
+          placeholder="Поиск по категории"
         />
         <img src="${imagesPath}/icons/searchIcon.svg" alt="" />
 
@@ -761,15 +782,14 @@ function onSearchFocusOutDesktop() {
     }, 100);
 }
 
-const variants = [
-    { name: "Veneer High-end Executive", tip: "Коворкинг пространства", url: "/coworking" },
-    { name: "Veneer Meeting Table", tip: "Коворкинг пространства", url: "/coworking" },
-    { name: "Big Table", tip: "ТРЦ", url: "/mall" }
-];
-
 function filterVariantsMobile() {
     const input = document.getElementById('search-input').value.toLowerCase();
     const variantsContainer = document.getElementById('search-variants');
+
+    if (input.trim() === "") {
+        variantsContainer.innerHTML = '';
+        return;
+    }
 
     variantsContainer.innerHTML = '';
 
@@ -798,6 +818,11 @@ function filterVariantsMobile() {
 function filterVariantsDesktop() {
     const input = document.querySelector('.search-input').value.toLowerCase();
     const variantsContainer = document.querySelector('.search-variants');
+
+    if (input.trim() === "") {
+        variantsContainer.innerHTML = '';
+        return;
+    }
 
     variantsContainer.innerHTML = '';
 
