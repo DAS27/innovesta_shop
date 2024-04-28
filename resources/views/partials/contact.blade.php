@@ -74,7 +74,7 @@
 {{--                </a>--}}
             </div>
 
-            <div class="locale-block">
+            <div class="language-block">
                 <form action="{{ route('locale.change') }}" method="POST">
                     @csrf
                     <select name="locale" class="language" onchange="this.form.submit()">
@@ -87,7 +87,6 @@
                     </select>
                 </form>
             </div>
-
         </div>
     </div>
 </div>

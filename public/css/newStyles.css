@@ -109,6 +109,16 @@ hr {
     border: 1px solid red;
 }
 
+form,
+form * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box; /* Для того, чтобы ширина и высота включали в себя padding и border */
+}
+
 @media screen and (max-width: 440px) {
   .title {
     margin-top: 0;
