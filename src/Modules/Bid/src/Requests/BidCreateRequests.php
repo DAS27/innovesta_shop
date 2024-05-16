@@ -20,7 +20,7 @@ final class BidCreateRequests extends FormRequest
             'phone' => ['required', 'regex:/^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$/'],
             'contact_method' => ['required', Rule::in(['email', 'phone', 'both'])],
             'room_type' => ['required', Rule::in(RoomTypeEnum::cases())],
-            'room_dimensions' => ['integer', 'nullable'],
+            'room_dimensions' => ['integer', 'nullable', 'max:1000000'],
             'comments' => ['string', 'nullable'],
             'sku' => ['string', 'nullable'],
             'files' => ['array', 'nullable'],
