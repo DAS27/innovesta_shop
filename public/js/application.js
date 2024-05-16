@@ -1,4 +1,5 @@
 const uploadInput = document.querySelector("#room-scheme");
+let allFiles = [];
 
 function fillFilesPreview(filesList) {
     const preview = document.querySelector(".preview");
@@ -18,9 +19,7 @@ function fillFilesPreview(filesList) {
           />
         </div>
         <div class="preview-info">
-          <p class="preview-file-name" title="${
-            filesList[i].name
-        }">${fileNameSlice(filesList[i].name)}</p>
+          <p class="preview-file-name" title="${filesList[i].name}">${fileNameSlice(filesList[i].name)}</p>
           <p class="preview-file-size">${returnFileSize(filesList[i].size)}</p>
         </div>
       </div>
@@ -36,49 +35,51 @@ function fillFilesPreview(filesList) {
 }
 
 function onFileDelete(name) {
-    const files = uploadInput.files;
+    allFiles = allFiles.filter(file => file.name !== name);
     const dt = new DataTransfer();
 
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
-
-        if (name !== file.name) dt.items.add(file);
-    }
-
+    allFiles.forEach(file => dt.items.add(file));
     uploadInput.files = dt.files;
 
     return fillFilesPreview(dt.files);
 }
 
 function onInputChange() {
-    const files = uploadInput.files;
-    const preview = document.querySelector(".preview");
-
-    while (preview.firstChild) {
-        preview.removeChild(preview.firstChild);
-    }
-
-    if (files.length > 11) {
-        this.value = "";
-        alert("Вы не можете загрузить больше 10 файлов");
-    }
-
+    const newFiles = Array.from(uploadInput.files);
     let filesSize = 0;
 
-    for (const file of files) {
-        filesSize += file.size;
+    allFiles.push(...newFiles);
 
-        if (filesSize >= 15728640) {
-            this.value = "";
-            alert("Размер файлов не может превышать 15Мб");
+    // Remove duplicates
+    allFiles = allFiles.reduce((unique, o) => {
+        if (!unique.some(obj => obj.name === o.name)) {
+            unique.push(o);
+        }
+        return unique;
+    }, []);
+
+    for (const file of allFiles) {
+        filesSize += file.size;
+    }
+
+    if (allFiles.length > 10) {
+        alert("Вы не можете загрузить больше 10 файлов");
+        allFiles = allFiles.slice(0, 10);
+    }
+
+    if (filesSize >= 15728640) {
+        alert("Размер файлов не может превышать 15Мб");
+        while (filesSize >= 15728640 && allFiles.length > 0) {
+            const removedFile = allFiles.pop();
+            filesSize -= removedFile.size;
         }
     }
 
-    if (files.length === 0) {
-        return;
-    } else {
-        fillFilesPreview(files);
-    }
+    const dt = new DataTransfer();
+    allFiles.forEach(file => dt.items.add(file));
+    uploadInput.files = dt.files;
+
+    fillFilesPreview(dt.files);
 }
 
 function fileNameSlice(name) {
