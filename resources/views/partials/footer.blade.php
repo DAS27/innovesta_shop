@@ -28,7 +28,7 @@
                 </a>
                 <div class="contact-info">
                     <img src="{{ asset('img/icons/locationIcon.svg') }}" alt="location icon" />
-                    <span>{{ __('messages.address') }}</span>
+                    <span>{{ __('messages.footer.address') }}</span>
                 </div>
                 <div class="contact-info">
                     <img src="{{ asset('img/icons/timeIcon.svg') }}" alt="time icon" />

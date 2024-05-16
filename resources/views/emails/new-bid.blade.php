@@ -69,8 +69,8 @@
                     'business_center' => 'Бизнес центр',
                     'hotel' => 'Гостиничный бизнес',
                     'restaurant' => 'Рестораны и кафе',
-                    'coworking_space' => 'Сoworking пространсва',
-                    'gaming_club' => 'Gaming клубы',
+                    'coworking_space' => 'Коворкинг пространства',
+                    'gaming_club' => 'Гейминг клубы',
                     }
                 !!}
             </li>
