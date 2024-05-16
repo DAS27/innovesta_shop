@@ -209,16 +209,16 @@ function fillCatalogProducts(productType, isMainPage = false) {
     switch (productType) {
         case "trc": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/mall">
+        <a class="modal-catalog-product" href="/mall#tab1">
           ${translations[locale].furniture.mall.sofas_poufs}
         </a>
-        <a class="modal-catalog-product" href="/mall">
+        <a class="modal-catalog-product" href="/mall#tab2">
           ${translations[locale].furniture.mall.armchairs_chairs}
         </a>
-        <a class="modal-catalog-product" href="/mall">
+        <a class="modal-catalog-product" href="/mall#tab3">
           ${translations[locale].furniture.mall.food_court_tables}
         </a>
-        <a class="modal-catalog-product" href="/mall">
+        <a class="modal-catalog-product" href="/mall#tab4">
           ${translations[locale].furniture.mall.food_court_chairs}
         </a>
       `;
@@ -227,13 +227,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         }
         case "rc": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/restaurant">
+        <a class="modal-catalog-product" href="/restaurant#tab1">
           ${translations[locale].furniture.hotel.meeting_room}
         </a>
-        <a class="modal-catalog-product" href="/restaurant">
+        <a class="modal-catalog-product" href="/restaurant#tab2">
           ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
-        <a class="modal-catalog-product" href="/restaurant">
+        <a class="modal-catalog-product" href="/restaurant#tab3">
           ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
@@ -242,13 +242,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         }
         case "gc": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/gaming-club">
+        <a class="modal-catalog-product" href="/gaming-club#tab1">
           ${translations[locale].furniture.hotel.meeting_room}
         </a>
-        <a class="modal-catalog-product" href="/gaming-club">
+        <a class="modal-catalog-product" href="/gaming-club#tab2">
           ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
-        <a class="modal-catalog-product" href="/gaming-club">
+        <a class="modal-catalog-product" href="/gaming-club#tab3">
           ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
@@ -257,13 +257,13 @@ function fillCatalogProducts(productType, isMainPage = false) {
         }
         case "gb": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/hotel">
+        <a class="modal-catalog-product" href="/hotel#tab1">
           ${translations[locale].furniture.hotel.meeting_room}
         </a>
-        <a class="modal-catalog-product" href="/hotel">
+        <a class="modal-catalog-product" href="/hotel#tab2">
           ${translations[locale].furniture.hotel.adjustable_table_chair}
         </a>
-        <a class="modal-catalog-product" href="/hotel">
+        <a class="modal-catalog-product" href="/hotel#tab3">
           ${translations[locale].furniture.hotel.angular_solutions}
         </a>
       `;
@@ -272,16 +272,16 @@ function fillCatalogProducts(productType, isMainPage = false) {
         }
         case "cw": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/coworking">
+        <a class="modal-catalog-product" href="/coworking#tab1">
             ${translations[locale].furniture.cw.chairs}
         </a>
-        <a class="modal-catalog-product" href="/coworking">
+        <a class="modal-catalog-product" href="/coworking#tab2">
             ${translations[locale].furniture.cw.tables}
         </a>
-        <a class="modal-catalog-product" href="/coworking">
+        <a class="modal-catalog-product" href="/coworking#tab3">
             ${translations[locale].furniture.cw.capsules}
         </a>
-        <a class="modal-catalog-product" href="/coworking">
+        <a class="modal-catalog-product" href="/coworking#tab4">
            ${translations[locale].furniture.cw.training_room}
         </a>
       `;
@@ -290,19 +290,19 @@ function fillCatalogProducts(productType, isMainPage = false) {
         }
         case "bc": {
             productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/business-center">
+        <a class="modal-catalog-product" href="/business-center#tab1">
             ${translations[locale].furniture.offices.staff}
         </a>
-        <a class="modal-catalog-product" href="/business-center">
+        <a class="modal-catalog-product" href="/business-center#tab2">
             ${translations[locale].furniture.offices.boss}
         </a>
-        <a class="modal-catalog-product" href="/business-center">
+        <a class="modal-catalog-product" href="/business-center#tab3">
             ${translations[locale].furniture.offices.lounge}
         </a>
-        <a class="modal-catalog-product" href="/business-center">
+        <a class="modal-catalog-product" href="/business-center#tab4">
             ${translations[locale].furniture.offices.conference_hall}
         </a>
-        <a class="modal-catalog-product" href="/business-center">
+        <a class="modal-catalog-product" href="/business-center#tab5">
             ${translations[locale].furniture.offices.waiting_room}
         </a>
       `;
