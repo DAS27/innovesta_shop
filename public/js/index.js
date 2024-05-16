@@ -937,9 +937,22 @@ function onFormSubmit(e) {
         },
     })
         .then((response) => {
-            if (response.status === 201) {
+            if (response.ok) {
+                return response.json();
+            } else if (response.status === 422) {
+                return response.json().then((errorData) => {
+                    alert(errorData.message)
+                });
+            } else {
+                return response.json().then((errorData) => {
+                    console.log('Error:', errorData);
+                });
+            }
+        })
+        .then((data) => {
+            if (data) {
                 openModal("application");
             }
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log('Fetch error:', err));
 }
