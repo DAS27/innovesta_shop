@@ -43,6 +43,7 @@ final class BidCreateRequests extends FormRequest
     {
         return [
             'phone.regex' => 'Неверный формат телефона! Пример: +7(999)999-99-99',
+            'room_dimensions.integer' => 'Максимальный размер помещения 1.000.000. кв.м.',
         ];
     }
 }
