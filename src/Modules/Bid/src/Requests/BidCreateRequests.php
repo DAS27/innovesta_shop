@@ -21,7 +21,7 @@ final class BidCreateRequests extends FormRequest
             'contact_method' => ['required', Rule::in(['email', 'phone', 'both'])],
             'room_type' => ['required', Rule::in(RoomTypeEnum::cases())],
             'room_dimensions' => ['integer', 'nullable', 'max:1000000'],
-            'comments' => ['string', 'nullable'],
+            'comments' => ['string', 'nullable', 'max:50'],
             'sku' => ['string', 'nullable'],
             'files' => ['array', 'nullable'],
         ];
