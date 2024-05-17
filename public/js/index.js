@@ -29,13 +29,13 @@ const translations = {
                 title: 'Для ТРЦ',
                 sofas_poufs: 'Диваны и пуфы для холла',
                 armchairs_chairs: 'Кресла и стулья для холла',
-                food_court_tables: 'Столы для фудкорта',
-                food_court_chairs: 'Стулья для фудкорта',
+                // food_court_tables: 'Столы для фудкорта',
+                // food_court_chairs: 'Стулья для фудкорта',
             },
             cw: {
                 title: 'Коворкинг пространства',
-                chairs: 'Кресла',
-                tables: 'Столы',
+                chairs: 'Кресла для open space',
+                tables: 'Столы для для open space',
                 capsules: 'Офисные станции (капсулы)',
                 training_room: 'Мебель для тренинг румов'
             },
@@ -92,8 +92,8 @@ const translations = {
                 title: 'Сауда орталықтарына арналған жиһаз',
                 sofas_poufs: 'Холлға арналған дивандар мен пуфтар',
                 armchairs_chairs: 'Холлға арналған креслолар мен демалыс орындықтары',
-                food_court_tables: 'Фудкортқа арналған үстелдер',
-                food_court_chairs: 'Фудкорт қа арналған орындықтар',
+                // food_court_tables: 'Фудкортқа арналған үстелдер',
+                // food_court_chairs: 'Фудкорт қа арналған орындықтар',
             },
             offices: {
                 title: 'Офистер',
@@ -105,8 +105,8 @@ const translations = {
             },
             cw: {
                 title: 'Коворкинг кеңістіктері',
-                chairs: 'Креслолар',
-                tables: 'Үстелдер',
+                chairs: 'Ашық кеңістікке арналған орындықтар',
+                tables: 'Ашық кеңістікке арналған үстелдер',
                 capsules: 'Кеңсе станциялары (капсулалар)',
                 training_room: 'Тренинг бөлмелеріне арналған жиһаз'
             },
@@ -129,8 +129,8 @@ const translations = {
 const variants = [
     { name: "Диваны и пуфы для холла", tip: "Мебель для ТРЦ", url: "/mall" },
     { name: "Кресла и стулья для холла", tip: "Мебель для ТРЦ", url: "/mall" },
-    { name: "Столы для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
-    { name: "Стулья для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
+    // { name: "Столы для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
+    // { name: "Стулья для фудкорта", tip: "Мебель для ТРЦ", url: "/mall" },
 
     { name: "Кресла", tip: "Коворкинг пространства", url: "/coworking" },
     { name: "Столы", tip: "Коворкинг пространства", url: "/coworking" },
@@ -208,67 +208,65 @@ function fillCatalogProducts(productType, isMainPage = false) {
 
     switch (productType) {
         case "trc": {
-            productsList.innerHTML = `
+            productsList.innerHTML =
+        `
         <a class="modal-catalog-product" href="/mall#tab1">
           ${translations[locale].furniture.mall.sofas_poufs}
         </a>
         <a class="modal-catalog-product" href="/mall#tab2">
           ${translations[locale].furniture.mall.armchairs_chairs}
         </a>
-        <a class="modal-catalog-product" href="/mall#tab3">
-          ${translations[locale].furniture.mall.food_court_tables}
-        </a>
-        <a class="modal-catalog-product" href="/mall#tab4">
-          ${translations[locale].furniture.mall.food_court_chairs}
-        </a>
-      `;
+        `
 
-            break;
+        break;
         }
         case "rc": {
-            productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/restaurant#tab1">
-          ${translations[locale].furniture.hotel.meeting_room}
-        </a>
-        <a class="modal-catalog-product" href="/restaurant#tab2">
-          ${translations[locale].furniture.hotel.adjustable_table_chair}
-        </a>
-        <a class="modal-catalog-product" href="/restaurant#tab3">
-          ${translations[locale].furniture.hotel.angular_solutions}
-        </a>
-      `;
+            productsList.innerHTML = ''
+        // `
+        // <a class="modal-catalog-product" href="/restaurant#tab1">
+        //   ${translations[locale].furniture.hotel.meeting_room}
+        // </a>
+        // <a class="modal-catalog-product" href="/restaurant#tab2">
+        //   ${translations[locale].furniture.hotel.adjustable_table_chair}
+        // </a>
+        // <a class="modal-catalog-product" href="/restaurant#tab3">
+        //   ${translations[locale].furniture.hotel.angular_solutions}
+        // </a>
+        // `
 
-            break;
+        break;
         }
         case "gc": {
-            productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/gaming-club#tab1">
-          ${translations[locale].furniture.hotel.meeting_room}
-        </a>
-        <a class="modal-catalog-product" href="/gaming-club#tab2">
-          ${translations[locale].furniture.hotel.adjustable_table_chair}
-        </a>
-        <a class="modal-catalog-product" href="/gaming-club#tab3">
-          ${translations[locale].furniture.hotel.angular_solutions}
-        </a>
-      `;
+            productsList.innerHTML = ''
+        // `
+        // <a class="modal-catalog-product" href="/gaming-club#tab1">
+        //   ${translations[locale].furniture.hotel.meeting_room}
+        // </a>
+        // <a class="modal-catalog-product" href="/gaming-club#tab2">
+        //   ${translations[locale].furniture.hotel.adjustable_table_chair}
+        // </a>
+        // <a class="modal-catalog-product" href="/gaming-club#tab3">
+        //   ${translations[locale].furniture.hotel.angular_solutions}
+        // </a>
+        // `
 
-            break;
+        break;
         }
         case "gb": {
-            productsList.innerHTML = `
-        <a class="modal-catalog-product" href="/hotel#tab1">
-          ${translations[locale].furniture.hotel.meeting_room}
-        </a>
-        <a class="modal-catalog-product" href="/hotel#tab2">
-          ${translations[locale].furniture.hotel.adjustable_table_chair}
-        </a>
-        <a class="modal-catalog-product" href="/hotel#tab3">
-          ${translations[locale].furniture.hotel.angular_solutions}
-        </a>
-      `;
+            productsList.innerHTML = ''
+        // `
+        // <a class="modal-catalog-product" href="/hotel#tab1">
+        //   ${translations[locale].furniture.hotel.meeting_room}
+        // </a>
+        // <a class="modal-catalog-product" href="/hotel#tab2">
+        //   ${translations[locale].furniture.hotel.adjustable_table_chair}
+        // </a>
+        // <a class="modal-catalog-product" href="/hotel#tab3">
+        //   ${translations[locale].furniture.hotel.angular_solutions}
+        // </a>
+        // `
 
-            break;
+        break;
         }
         case "cw": {
             productsList.innerHTML = `
@@ -284,9 +282,9 @@ function fillCatalogProducts(productType, isMainPage = false) {
         <a class="modal-catalog-product" href="/coworking#tab4">
            ${translations[locale].furniture.cw.training_room}
         </a>
-      `;
+        `
 
-            break;
+        break;
         }
         case "bc": {
             productsList.innerHTML = `
@@ -305,9 +303,9 @@ function fillCatalogProducts(productType, isMainPage = false) {
         <a class="modal-catalog-product" href="/business-center#tab5">
             ${translations[locale].furniture.offices.waiting_room}
         </a>
-      `;
+        `
 
-            break;
+        break;
         }
     }
 }
@@ -688,8 +686,6 @@ function openSidebarCatalog(isMainPage = false) {
               <ul class="sub-menu">
                 <li><a href="/mall#tab1">${translations[locale].furniture.mall.sofas_poufs}</a></li>
                 <li><a href="/mall#tab2">${translations[locale].furniture.mall.armchairs_chairs}</a></li>
-                <li><a href="/mall#tab3">${translations[locale].furniture.mall.food_court_tables}</a></li>
-                <li><a href="/mall#tab4">${translations[locale].furniture.mall.food_court_chairs}</a></li>
               </ul>
             </li>
 

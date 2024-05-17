@@ -74,13 +74,13 @@ return [
             'title' => 'Мебель для ТРЦ',
             'sofas_poufs' =>  'Диваны и пуфы для холла',
             'armchairs_chairs' => 'Кресла и стулья для холла',
-            'food_court_tables' => 'Столы для фудкорта',
-            'food_court_chairs' => 'Стулья для фудкорта',
+//            'food_court_tables' => 'Столы для фудкорта',
+//            'food_court_chairs' => 'Стулья для фудкорта',
         ],
         'cw' => [
             'title' => 'Коворкинг пространства',
-            'chairs' => 'Кресла',
-            'tables' => 'Столы',
+            'chairs' => 'Кресла для open space',
+            'tables' => 'Столы для для open space',
             'capsules' => 'Офисные станции (капсулы)',
             'training_room' => 'Мебель для тренинг румов'
         ],
