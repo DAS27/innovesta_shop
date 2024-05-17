@@ -23,7 +23,7 @@ final class BidCreateRequests extends FormRequest
             'room_dimensions' => ['integer', 'nullable', 'max:1000000'],
             'comments' => ['string', 'nullable'],
             'sku' => ['string', 'nullable', 'max:50'],
-            'files' => ['array', 'nullable'],
+            'files' => ['array', 'nullable', 'max:10485760'],
         ];
     }
 
@@ -44,7 +44,7 @@ final class BidCreateRequests extends FormRequest
         return [
             'phone.regex' => 'Неверный формат телефона! Пример: +7(999)999-99-99',
             'sku.max' => 'Максимальный размер SKU 50 символов',
-            'room_dimensions.integer' => 'Максимальный размер помещения 1.000.000. кв.м.',
+            'room_dimensions.integer' => 'Максимальный размер помещения 1.000.000. кв.≠м.',
         ];
     }
 }

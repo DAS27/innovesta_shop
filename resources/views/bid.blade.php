@@ -195,7 +195,7 @@
                                 />
                             </div>
                             <div class="preview"></div>
-                            <p class="tip">{{ __('messages.form.file_upload_max_file_placeholder', ['max' => '15']) }}</p>
+                            <p class="tip">{{ __('messages.form.file_upload_max_file_placeholder', ['max' => '10']) }}</p>
                         </div>
                     </div>
 
