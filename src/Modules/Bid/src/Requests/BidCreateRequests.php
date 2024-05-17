@@ -21,8 +21,8 @@ final class BidCreateRequests extends FormRequest
             'contact_method' => ['required', Rule::in(['email', 'phone', 'both'])],
             'room_type' => ['required', Rule::in(RoomTypeEnum::cases())],
             'room_dimensions' => ['integer', 'nullable', 'max:1000000'],
-            'comments' => ['string', 'nullable', 'max:50'],
-            'sku' => ['string', 'nullable'],
+            'comments' => ['string', 'nullable'],
+            'sku' => ['string', 'nullable', 'max:50'],
             'files' => ['array', 'nullable'],
         ];
     }
@@ -43,6 +43,7 @@ final class BidCreateRequests extends FormRequest
     {
         return [
             'phone.regex' => 'Неверный формат телефона! Пример: +7(999)999-99-99',
+            'sku.max' => 'Максимальный размер SKU 50 символов',
             'room_dimensions.integer' => 'Максимальный размер помещения 1.000.000. кв.м.',
         ];
     }
