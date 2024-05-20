@@ -8,6 +8,7 @@
     --main-color-grey-dark: #5e6168; /*rgba(94, 97, 104, 1)*/
     --main-color-grey: #777777; /*rgba(119, 119, 119, 1)*/
     --main-color-grey-light: #8d9097; /*rgba(141, 144, 151, 1)*/
+    --main-color-grey-light-2: #A6A6A6; /*rgba(166, 166, 166, 1)*/
 }
 
 /* styles for custom radio inputs */
@@ -1112,6 +1113,12 @@ ul.breadcrumb li a:hover {
     color: var(--main-color-black);
     border-color: var(--main-color-black);
     transform: scale(1.05);
+}
+
+.disabled {
+    color: var(--main-color-grey-light-2);
+    border: 1px solid var(--main-color-grey-light-2);
+    pointer-events: none;
 }
 
 .setup {
