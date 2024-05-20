@@ -26,26 +26,7 @@
                 </ul>
             </div>
 
-            <div class="overwidth">
-                <div class="tabs">
-                    <button
-                        class="tablink active tab1"
-                        onclick="openTab(event, 'tab1')"
-                    >
-                        {{ __('messages.furniture.hotel.meeting_room') }}
-                    </button>
-                    <button class="tablink tab2" onclick="openTab(event, 'tab2')">
-                        {{ __('messages.furniture.hotel.adjustable_table_chair') }}
-                    </button>
-                    <button class="tablink tab3" onclick="openTab(event, 'tab3')">
-                        {{ __('messages.furniture.hotel.angular_solutions') }}
-                    </button>
-                </div>
-
-                <div class="active products-list container wrapper" id="tab1"></div>
-                <div class="products-list container wrapper" id="tab2"></div>
-                <div class="products-list container wrapper" id="tab3"></div>
-            </div>
+            <div class="overwidth"></div>
 
             @include('partials.setup')
         </main>
