@@ -8,7 +8,7 @@ return [
     'mall' => 'ТРЦ',
     'restaurant' => 'Рестораны и кафе',
     'links' => [
-        'show_room' => 'Шоурум',
+        'show_room' => 'Шоурумы',
         'about_us' => 'О нас',
     ],
     'footer' => [
