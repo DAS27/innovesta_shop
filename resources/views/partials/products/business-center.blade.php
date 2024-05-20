@@ -177,7 +177,7 @@
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">Cтолы для персонала кубические доп2.pdf</p>
+                        <p class="product-title">Cтолы для персонала.pdf</p>
 
                         <div class="product-links">
                             <a
