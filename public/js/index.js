@@ -35,7 +35,7 @@ const translations = {
             cw: {
                 title: 'Коворкинг пространства',
                 chairs: 'Кресла для open space',
-                tables: 'Столы для для open space',
+                tables: 'Столы для open space',
                 capsules: 'Офисные станции (капсулы)',
                 training_room: 'Мебель для тренинг румов'
             },
