@@ -50,16 +50,16 @@
                         <div class="product-image-block">
                             <img
                                 class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
+                                src="{{ asset('img/cw/TL_series.png') }}"
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">M&W регулируемый стол (T).pdf</p>
+                        <p class="product-title">M&W офисные кресла.pdf</p>
 
                         <div class="product-links">
                             <a
                                 class="product-link download-link"
-                                href="{{ asset('assets/M&W high-end executive table（NP）.pdf') }}"
+                                href="{{ asset('assets/cw/chairs/M&W офисные кресла.pdf') }}"
                                 download
                             >
                                 <img
@@ -72,97 +72,15 @@
                             <div class="half-width">
                                 <a
                                     class="product-link look-link"
-                                    href="{{ asset('assets/M&W high-end executive table（NP）.pdf') }}"
+                                    href="{{ asset('assets/cw/chairs/M&W офисные кресла.pdf') }}"
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
                                     <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
-                                <a class="product-link video-link" disable>
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
-                                    <span>{{ __('messages.btn.video') }}</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="product-image-block">
-                            <img
-                                class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
-                                alt="meeting Room Set"
-                            />
-                        </div>
-                        <p class="product-title">M&W Veneer Meeting Table.pdf</p>
-
-                        <div class="product-links">
-                            <a
-                                class="product-link download-link"
-                                href="{{ asset('assets/M&W Veneer Meeting Table（NP）.pdf') }}"
-                                download
-                            >
-                                <img
-                                    src="{{ asset('img/icons/downloadIcon.svg') }}"
-                                    alt="download icon"
-                                />
-                                <span>{{ __('messages.btn.download') }}</span>
-                            </a>
-
-                            <div class="half-width">
-                                <a
-                                    class="product-link look-link"
-                                    href="{{ asset('assets/M&W Veneer Meeting Table（NP）.pdf') }}"
-                                    target="_blank"
-                                >
-                                    <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon') }}" />
-                                    <span>{{ __('messages.btn.show') }}</span>
-                                </a>
-
-                                <a class="product-link video-link">
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon') }}" />
-                                    <span>{{ __('messages.btn.video') }}</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product">
-                        <div class="product-image-block">
-                            <img
-                                class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
-                                alt="meeting Room Set"
-                            />
-                        </div>
-                        <p class="product-title">M&W Veneer Back Cabinet.pdf</p>
-
-                        <div class="product-links">
-                            <a
-                                class="product-link download-link"
-                                href="{{ asset('assets/M&W Veneer Back Cabinet（NP）.pdf') }}"
-                                download
-                            >
-                                <img
-                                    src="{{ asset('img/icons/downloadIcon.svg') }}"
-                                    alt="download icon"
-                                />
-                                <span>{{ __('messages.btn.download') }}</span>
-                            </a>
-
-                            <div class="half-width">
-                                <a
-                                    class="product-link look-link"
-                                    href="{{ asset('assets/M&W Veneer Back Cabinet（NP）.pdf') }}"
-                                    target="_blank"
-                                >
-                                    <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
-                                    <span>{{ __('messages.btn.show') }}</span>
-                                </a>
-
-                                <a class="product-link video-link">
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
                                     <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
@@ -175,16 +93,16 @@
                         <div class="product-image-block">
                             <img
                                 class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
+                                src="{{ asset('img/cw/T3_T8_series.png') }}"
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">M&W не регулируемый стол (T).pdf</p>
+                        <p class="product-title">Столы для оупенспэйса кубические доп.pdf</p>
 
                         <div class="product-links">
                             <a
                                 class="product-link download-link"
-                                href="{{ asset('assets/M&W high-end executive table（NP）.pdf') }}"
+                                href="{{ asset('assets/cw/tables/cтолы для оупенспэйса кубические доп.pdf') }}"
                                 download
                             >
                                 <img
@@ -197,15 +115,95 @@
                             <div class="half-width">
                                 <a
                                     class="product-link look-link"
-                                    href="{{ asset('assets/M&W high-end executive table（NP）.pdf') }}"
+                                    href="{{ asset('assets/cw/tables/cтолы для оупенспэйса кубические доп.pdf') }}"
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
                                     <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
-                                <a class="product-link video-link">
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
+                                    <span>{{ __('messages.btn.video') }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-image-block">
+                            <img
+                                class="product-image"
+                                src="{{ asset('img/cw/T8_series.png') }}"
+                                alt="meeting Room Set"
+                            />
+                        </div>
+                        <p class="product-title">Столы для оупенспэйса кубические доп1.pdf</p>
+
+                        <div class="product-links">
+                            <a
+                                class="product-link download-link"
+                                href="{{ asset('assets/cw/tables/столы для оупенспэйса кубические доп1.pdf') }}"
+                                download
+                            >
+                                <img
+                                    src="{{ asset('img/icons/downloadIcon.svg') }}"
+                                    alt="download icon"
+                                />
+                                <span>{{ __('messages.btn.download') }}</span>
+                            </a>
+
+                            <div class="half-width">
+                                <a
+                                    class="product-link look-link"
+                                    href="{{ asset('assets/cw/tables/столы для оупенспэйса кубические доп1.pdf') }}"
+                                    target="_blank"
+                                >
+                                    <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
+                                    <span>{{ __('messages.btn.show') }}</span>
+                                </a>
+
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
+                                    <span>{{ __('messages.btn.video') }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-image-block">
+                            <img
+                                class="product-image"
+                                src="{{ asset('img/cw/T3_series.png') }}"
+                                alt="meeting Room Set"
+                            />
+                        </div>
+                        <p class="product-title">Столы для оупенспэйса кубические доп1.pdf</p>
+
+                        <div class="product-links">
+                            <a
+                                class="product-link download-link"
+                                href="{{ asset('assets/cw/tables/столы для оупенспэйса кубические.pdf') }}"
+                                download
+                            >
+                                <img
+                                    src="{{ asset('img/icons/downloadIcon.svg') }}"
+                                    alt="download icon"
+                                />
+                                <span>{{ __('messages.btn.download') }}</span>
+                            </a>
+
+                            <div class="half-width">
+                                <a
+                                    class="product-link look-link"
+                                    href="{{ asset('assets/cw/tables/столы для оупенспэйса кубические.pdf') }}"
+                                    target="_blank"
+                                >
+                                    <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
+                                    <span>{{ __('messages.btn.show') }}</span>
+                                </a>
+
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
                                     <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
@@ -218,16 +216,16 @@
                         <div class="product-image-block">
                             <img
                                 class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
+                                src="{{ asset('img/cw/M&W_office_pod.png') }}"
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">M&W угловой стол (T).pdf</p>
+                        <p class="product-title">M&W офисные станции (капсулы).pdf</p>
 
                         <div class="product-links">
                             <a
                                 class="product-link download-link"
-                                href="{{ asset('assets/M&W office pod（NP）.pdf') }}"
+                                href="{{ asset('assets/cw/capsules/M&W офисные станции (капсулы).pdf') }}"
                                 download
                             >
                                 <img
@@ -240,20 +238,21 @@
                             <div class="half-width">
                                 <a
                                     class="product-link look-link"
-                                    href="{{ asset('assets/M&W office pod（NP）.pdf') }}"
+                                    href="{{ asset('assets/cw/capsules/M&W офисные станции (капсулы).pdf') }}"
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
                                     <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
-                                <a class="product-link video-link">
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
                                     <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="products-list container wrapper" id="tab4">
@@ -261,16 +260,16 @@
                         <div class="product-image-block">
                             <img
                                 class="product-image"
-                                src="{{ asset('img/meetingRoomSetImg.png') }}"
+                                src="{{ asset('img/cw/M&W_writing_board.png') }}"
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">M&W угловой стол (T).pdf</p>
+                        <p class="product-title">M&W Доски для писания.pdf</p>
 
                         <div class="product-links">
                             <a
                                 class="product-link download-link"
-                                href="{{ asset('assets/M&W office pod（NP）.pdf') }}"
+                                href="{{ asset('assets/cw/training_room/M&W Доски для писания.pdf') }}"
                                 download
                             >
                                 <img
@@ -283,15 +282,55 @@
                             <div class="half-width">
                                 <a
                                     class="product-link look-link"
-                                    href="{{ asset('assets/M&W office pod（NP）.pdf') }}"
+                                    href="{{ asset('assets/cw/training_room/M&W Доски для писания.pdf') }}"
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
                                     <span>{{ __('messages.btn.show') }}</span>
                                 </a>
 
-                                <a class="product-link video-link">
-                                    <img src="{{ asset('img/icons/videoIcon.svg') }}" alt="play icon" />
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
+                                    <span>{{ __('messages.btn.video') }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-image-block">
+                            <img
+                                class="product-image"
+                                src="{{ asset('img/cw/training_chair.png') }}"
+                                alt="meeting Room Set"
+                            />
+                        </div>
+                        <p class="product-title">M&W офисные кресла.pdf</p>
+
+                        <div class="product-links">
+                            <a
+                                class="product-link download-link"
+                                href="{{ asset('assets/cw/training_room/M&W стулья для обучения.pdf') }}"
+                                download
+                            >
+                                <img
+                                    src="{{ asset('img/icons/downloadIcon.svg') }}"
+                                    alt="download icon"
+                                />
+                                <span>{{ __('messages.btn.download') }}</span>
+                            </a>
+
+                            <div class="half-width">
+                                <a
+                                    class="product-link look-link"
+                                    href="{{ asset('assets/cw/training_room/M&W стулья для обучения.pdf') }}"
+                                    target="_blank"
+                                >
+                                    <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
+                                    <span>{{ __('messages.btn.show') }}</span>
+                                </a>
+
+                                <a class="product-link video-link disabled">
+                                    <img src="{{ asset('img/icons/videoIconHidden.svg') }}" alt="play icon" />
                                     <span>{{ __('messages.btn.video') }}</span>
                                 </a>
                             </div>
