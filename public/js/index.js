@@ -451,6 +451,7 @@ function openModal(type, isMainPage) {
             modalActive.style.height = "264px";
 
             modalWindow.innerHTML = `
+        <div class="modalClose" onclick="onModalClose()"></div>
         <div class="app-modal-success-block">
           <img
             class="app-modal-img"
