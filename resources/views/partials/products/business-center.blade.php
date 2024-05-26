@@ -468,7 +468,7 @@
                         <div class="product-links">
                             <a
                                 class="product-link download-link"
-                                href="{{ asset('assets/bc/lounge/M&W кофейные(журнальные) столы.pdf') }}"
+                                href="{{ asset('assets/bc/lounge/M&W журнальные столы.pdf') }}"
                                 download
                             >
                                 <img
@@ -481,7 +481,7 @@
                             <div class="half-width">
                                 <a
                                     class="product-link look-link"
-                                    href="{{ asset('assets/bc/lounge/M&W кофейные(журнальные) столы.pdf') }}"
+                                    href="{{ asset('assets/bc/lounge/M&W журнальные столы.pdf') }}"
                                     target="_blank"
                                 >
                                     <img src="{{ asset('img/icons/lookIcon.svg') }}" alt="eye icon" />
@@ -503,7 +503,7 @@
                                 alt="meeting Room Set"
                             />
                         </div>
-                        <p class="product-title">M&W столы для каб рук.pdf</p>
+                        <p class="product-title">M&W кресла и стулья для лаунжа.pdf</p>
 
                         <div class="product-links">
                             <a
